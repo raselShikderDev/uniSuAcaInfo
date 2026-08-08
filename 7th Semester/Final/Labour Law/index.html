@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Labour Law 2006 — Exam Command Center</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16233D;
+    --navy-deep:#0F1930;
+    --parchment:#F4EFE3;
+    --parchment-dim:#EAE2CF;
+    --gold:#C9A24B;
+    --gold-bright:#E4C067;
+    --maroon:#8B2E3C;
+    --sage:#5C8863;
+    --ink:#22303F;
+    --ink-soft:#5A6B7C;
+    --line: rgba(201,162,75,0.35);
+    --radius: 10px;
+    --shadow: 0 10px 30px rgba(15,25,48,0.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(201,162,75,0.10), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(139,46,60,0.14), transparent 55%),
+      var(--navy);
+    color:var(--parchment);
+    font-family:'IBM Plex Sans', sans-serif;
+    min-height:100vh;
+    padding:28px 20px 60px;
+  }
+  .wrap{max-width:1180px; margin:0 auto;}
+
+  /* ---------- HEADER ---------- */
+  header.hero{
+    display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    margin-bottom:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(90deg, transparent, transparent 78px, rgba(201,162,75,0.05) 79px, transparent 80px);
+    pointer-events:none;
+  }
+  .hero-left{position:relative; z-index:1;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:.14em; text-transform:uppercase;
+    font-size:11px; color:var(--gold-bright); font-weight:600;
+    display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--maroon); box-shadow:0 0 0 3px rgba(139,46,60,0.25);}
+  h1{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:clamp(26px, 4vw, 38px);
+    margin: 6px 0 4px;
+    color:var(--parchment);
+    letter-spacing:.2px;
+  }
+  .hero-left p{margin:0; color:var(--ink-soft); color:#C7CFDA; font-size:14.5px; max-width:520px;}
+
+  .ring-block{
+    display:flex; align-items:center; gap:16px; position:relative; z-index:1;
+  }
+  .ring{
+    width:104px;height:104px; position:relative;
+  }
+  .ring svg{transform:rotate(-90deg);}
+  .ring-track{fill:none; stroke:rgba(244,239,227,0.12); stroke-width:9;}
+  .ring-fill{fill:none; stroke:url(#goldGrad); stroke-width:9; stroke-linecap:round; transition: stroke-dashoffset .6s ease;}
+  .ring-label{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .ring-label .num{font-family:'Source Serif 4',serif; font-size:24px; font-weight:700; color:var(--gold-bright); line-height:1;}
+  .ring-label .sub{font-size:9.5px; color:#A9B4C2; letter-spacing:.08em; text-transform:uppercase; margin-top:2px;}
+  .marks-info{font-family:'IBM Plex Mono', monospace;}
+  .marks-info .big{font-size:22px; color:var(--parchment); font-weight:600;}
+  .marks-info .small{font-size:11.5px; color:#A9B4C2; letter-spacing:.03em;}
+
+  /* ---------- LAYOUT ---------- */
+  .layout{display:grid; grid-template-columns: 300px 1fr; gap:22px;}
+  @media (max-width: 880px){ .layout{grid-template-columns: 1fr;} }
+
+  .panel{
+    background: rgba(255,255,255,0.025);
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    padding:18px;
+  }
+  .panel h2{
+    font-family:'Source Serif 4', serif;
+    font-size:15px; margin:0 0 4px; color:var(--gold-bright);
+    display:flex; align-items:center; gap:8px;
+  }
+  .panel .panel-sub{font-size:11.5px; color:#94A2B3; margin:0 0 14px;}
+
+  /* Priority queue */
+  .queue-item{
+    display:flex; align-items:center; gap:10px;
+    padding:9px 8px; border-radius:8px; cursor:pointer;
+    border:1px solid transparent;
+    transition: background .15s ease, border-color .15s ease;
+    font-size:13.2px;
+  }
+  .queue-item:hover{background:rgba(201,162,75,0.08); border-color:var(--line);}
+  .queue-num{
+    width:22px;height:22px; border-radius:50%;
+    background:var(--navy-deep); border:1px solid var(--gold);
+    color:var(--gold-bright); font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .queue-item.done .queue-num{background:var(--sage); border-color:var(--sage); color:#0F1930;}
+  .queue-item.done span.qtitle{color:#8FBF98; text-decoration: line-through; text-decoration-color:rgba(143,191,152,0.5);}
+  .qtitle{color:#DCE3EA;}
+
+  .legend{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:11px; color:#8C9AAB; line-height:1.7;}
+  .legend b{color:var(--gold-bright);}
+
+  /* ---------- CHAPTER GROUPS ---------- */
+  .chapter-group{margin-bottom:20px;}
+  .chapter-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--maroon-bright, var(--gold));
+    display:flex; align-items:center; gap:10px;
+    margin: 4px 0 10px;
+  }
+  .chapter-title::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .cards{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:12px;
+  }
+  .card{
+    background: linear-gradient(180deg, rgba(244,239,227,0.045), rgba(244,239,227,0.015));
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    padding:16px 16px 14px;
+    cursor:pointer;
+    position:relative;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-3px); box-shadow: var(--shadow); border-color:var(--gold);}
+  .card .tab{
+    position:absolute; top:-9px; left:16px;
+    background:var(--gold); color:var(--navy-deep);
+    font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:10px;
+    padding:3px 8px; border-radius:5px; letter-spacing:.03em;
+  }
+  .card h3{
+    font-family:'Source Serif 4', serif; font-size:16.5px; margin:10px 0 6px; color:var(--parchment);
+    line-height:1.25;
+  }
+  .card p.tag{font-size:11.5px; color:#94A2B3; margin:0 0 12px;}
+  .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:6px;}
+  .status-pill{
+    font-size:10px; padding:3px 9px; border-radius:20px; font-family:'IBM Plex Mono',monospace;
+    border:1px solid var(--line); color:#A9B4C2;
+  }
+  .status-pill.done{background:rgba(92,136,99,0.18); border-color:var(--sage); color:#9FCBA6;}
+  .open-link{font-size:12px; color:var(--gold-bright); font-weight:600;}
+
+  /* ---------- SHORT QUESTIONS ---------- */
+  .flash-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:12px;}
+  .flash{
+    perspective:1000px; height:118px; cursor:pointer;
+  }
+  .flash-inner{
+    position:relative; width:100%; height:100%; transition: transform .5s;
+    transform-style:preserve-3d;
+  }
+  .flash.flipped .flash-inner{transform: rotateY(180deg);}
+  .flash-face{
+    position:absolute; inset:0; backface-visibility:hidden;
+    border-radius:var(--radius); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:12px; font-size:13px;
+  }
+  .flash-front{
+    background: linear-gradient(160deg, rgba(139,46,60,0.28), rgba(22,35,61,0.4));
+    color:var(--parchment); font-family:'Source Serif 4', serif; font-size:16px; font-weight:600;
+  }
+  .flash-back{
+    background: linear-gradient(160deg, rgba(92,136,99,0.22), rgba(22,35,61,0.4));
+    transform: rotateY(180deg);
+    color:#E4EDE5; font-size:12.2px; line-height:1.5;
+  }
+
+  /* ---------- MODAL ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(10,15,28,0.72);
+    backdrop-filter: blur(3px);
+    display:none; align-items:flex-start; justify-content:center;
+    padding: 40px 16px; z-index:50; overflow-y:auto;
+  }
+  .overlay.open{display:flex;}
+  .modal{
+    background: var(--parchment);
+    color: var(--ink);
+    width:100%; max-width:700px;
+    border-radius:14px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    overflow:hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    animation: pop .22s ease;
+  }
+  @keyframes pop{ from{transform:translateY(10px); opacity:0;} to{transform:translateY(0); opacity:1;} }
+  .modal-head{
+    background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+    color:var(--parchment);
+    padding:20px 24px;
+    display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+  }
+  .modal-head .m-tab{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold-bright);
+    letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px;
+  }
+  .modal-head h2{font-family:'Source Serif 4', serif; margin:0; font-size:21px; line-height:1.3;}
+  .close-btn{
+    background:rgba(244,239,227,0.1); border:1px solid rgba(244,239,227,0.25);
+    color:var(--parchment); width:30px;height:30px; border-radius:50%;
+    cursor:pointer; font-size:15px; flex-shrink:0;
+  }
+  .close-btn:hover{background:rgba(244,239,227,0.2);}
+  .modal-body{padding:22px 26px 8px; max-height:60vh; overflow-y:auto;}
+  .modal-body h4{
+    font-family:'IBM Plex Mono',monospace; text-transform:uppercase; font-size:11px; letter-spacing:.1em;
+    color:var(--maroon); margin:18px 0 8px;
+  }
+  .modal-body h4:first-child{margin-top:0;}
+  .modal-body p{margin:0 0 10px; font-size:14.2px; line-height:1.65;}
+  .modal-body ul, .modal-body ol{margin:0 0 10px; padding-left:20px; font-size:13.8px; line-height:1.7;}
+  .modal-body li{margin-bottom:4px;}
+  .modal-body .sec{font-weight:700; color:var(--navy);}
+  .mem-box{
+    background: var(--parchment-dim); border:1px dashed var(--gold);
+    border-radius:8px; padding:12px 14px; margin:8px 0 16px;
+  }
+  .mem-box ul{margin:0; padding-left:18px;}
+  .plan-row{display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:5px 0; border-bottom:1px dotted rgba(0,0,0,0.12);}
+  .plan-row:last-child{border-bottom:none;}
+  .modal-foot{
+    padding:16px 26px 22px; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    border-top:1px solid rgba(0,0,0,0.08);
+  }
+  .mark-btn{
+    background: var(--sage); color:#0F1930; border:none; font-weight:700;
+    padding:10px 18px; border-radius:8px; cursor:pointer; font-size:13px;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .mark-btn.undo{background:transparent; border:1px solid var(--ink-soft); color:var(--ink-soft); font-weight:600;}
+  .modal-foot .hint{font-size:11.5px; color:#7A8797;}
+
+  footer{
+    text-align:center; margin-top:30px; color:#7A8797; font-size:11.5px; font-family:'IBM Plex Mono',monospace;
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E4C067"/>
+      <stop offset="100%" stop-color="#8B2E3C"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-left">
+      <div class="eyebrow"><span class="dot"></span> ONE-DAY CRAM · XLII OF 2006</div>
+      <h1>Labour Law Exam Command Center</h1>
+      <p>Bangladesh Labour Act, 2006 — 10 case files curated for tomorrow's paper. Click any file to study, then mark it reviewed to track your 50 marks.</p>
+    </div>
+    <div class="ring-block">
+      <div class="ring">
+        <svg viewBox="0 0 120 120" width="104" height="104">
+          <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+          <circle id="ringFill" class="ring-fill" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+        </svg>
+        <div class="ring-label"><span class="num" id="ringPct">0%</span><span class="sub">Reviewed</span></div>
+      </div>
+      <div class="marks-info">
+        <div class="big" id="marksSecured">0 / 50</div>
+        <div class="small">estimated marks secured</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="panel">
+      <h2>◈ Study Order</h2>
+      <p class="panel-sub">Your topics, in the order you gave.</p>
+      <div id="queueList"></div>
+      <div class="legend">
+        <div><b>Gold circle</b> — not yet reviewed</div>
+        <div><b>Sage circle</b> — reviewed ✓</div>
+        <div style="margin-top:8px;">Click a case file on the right, read it, then hit "Mark Reviewed" inside.</div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div>
+      <div class="chapter-group">
+        <div class="chapter-title">Chapter 1</div>
+        <div class="cards" id="grp-1"></div>
+      </div>
+      <div class="chapter-group">
+        <div class="chapter-title">Chapter 2</div>
+        <div class="cards" id="grp-2"></div>
+      </div>
+      <div class="chapter-group">
+        <div class="chapter-title">Chapter 3</div>
+        <div class="cards" id="grp-3"></div>
+      </div>
+      <div class="chapter-group">
+        <div class="chapter-title">Chapter 4</div>
+        <div class="cards" id="grp-4"></div>
+      </div>
+      <div class="chapter-group">
+        <div class="chapter-title">Short Questions · Flip to reveal</div>
+        <div class="flash-grid" id="flashGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Built from the Bangladesh Labour Act, 2006 (XLII of 2006) — verify against your issued PDF before the exam.</footer>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <div class="m-tab" id="mTab">CASE FILE</div>
+        <h2 id="mTitle">Title</h2>
+      </div>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="modal-foot">
+      <span class="hint">~250–350 words · ~12 min writing time</span>
+      <button class="mark-btn" id="markBtn" onclick="toggleReview()">Mark Reviewed ✓</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const topics = [
+  {
+    id:'facilities', tab:'Ch VIII · §89–99', group:1, title:'Facilities Provided for the Workers',
+    body:`
+      <p>Chapter VIII (Sections 89–99) imposes a duty on every employer to provide certain welfare facilities to ensure the health, safety, and comfort of workers at the workplace.</p>
+      <h4>General Welfare Facilities</h4>
+      <ul>
+        <li><b>§89 — First-aid:</b> at least 1 box per 150 workers; nursing room if &gt;500 workers.</li>
+        <li><b>§90 — Safety Record Book:</b> mandatory if &gt;25 workers employed.</li>
+        <li><b>§91 — Washing facilities:</b> adequate, separate for men and women.</li>
+        <li><b>§92 — Canteens</b> and <b>§93 — Shelters/rest-rooms</b> as prescribed.</li>
+        <li><b>§94 — Room for children</b> below 6 years, where women workers are employed.</li>
+      </ul>
+      <h4>Tea Plantation Specific</h4>
+      <ul>
+        <li><span class="sec">§95</span> Recreational/educational facilities · <span class="sec">§96</span> Housing · <span class="sec">§97</span> Daily necessities.</li>
+      </ul>
+      <h4>Other</h4>
+      <ul>
+        <li><span class="sec">§98</span> — Medical care for newspaper workers.</li>
+        <li><span class="sec">§99</span> — Compulsory Group Insurance, as directed by Government.</li>
+      </ul>
+      <h4>Conclusion</h4>
+      <p>These welfare provisions reflect the Act's social-justice philosophy, giving workers a minimum standard of dignity and support beyond wages.</p>
+    `,
+    mem:['§89 — first aid: 1 box/150 workers','§90 — Safety Record Book (>25 workers)','§91 — washing facilities, separate by gender','§94 — room for children under 6','§95–97 — tea plantation facilities','§99 — compulsory group insurance'],
+    plan:[['Introduction','1 min'],['§89–94 general facilities','6 min'],['§95–99 tea plantation & insurance','4 min'],['Conclusion','1 min']]
+  },
+  {
+    id:'suspension', tab:'Ch II · §24', group:1, title:'Suspension Procedure',
+    body:`
+      <p>Suspension pending enquiry is dealt with under Section 24 of the Act, which also fixes the disciplinary procedure an employer must follow before punishing a worker under Section 23.</p>
+      <h4>Procedure for Punishment (§24)</h4>
+      <ol>
+        <li>Allegations must be recorded <b>in writing</b>.</li>
+        <li>Worker gets a copy and <b>at least 7 days</b> to explain.</li>
+        <li>Worker gets an <b>opportunity of being heard</b>.</li>
+        <li>Punishment follows only if found guilty <b>after enquiry</b>.</li>
+        <li>The employer/manager must <b>approve</b> the order.</li>
+      </ol>
+      <h4>Suspension Pending Enquiry — §24(2)</h4>
+      <ul>
+        <li>A charged worker may be suspended while the enquiry is pending.</li>
+        <li>Maximum period: <b>60 days</b> (unless matter is before a court).</li>
+        <li>Subsistence allowance during suspension = <b>half of average wages</b> + dearness/ad-hoc allowance.</li>
+        <li>Order of suspension must be <b>in writing</b> and takes effect immediately on delivery.</li>
+      </ul>
+      <h4>Outcome</h4>
+      <p>If guilty — no wages for the suspension period, only subsistence allowance (<span class="sec">§24(6)</span>). If not proved — treated as on duty, full wages payable, subsistence allowance adjusted (<span class="sec">§24(7)</span>).</p>
+    `,
+    mem:['§24 — writing, 7-day notice, hearing, enquiry, approval','§24(2) — suspension max 60 days','Subsistence allowance = ½ average wages','Suspension order must be in writing','Guilty → no wages, only subsistence','Not proved → full wages restored'],
+    plan:[['Introduction','1 min'],['Punishment procedure steps','5 min'],['Suspension rules & outcome','5 min'],['Conclusion','1 min']]
+  },
+  {
+    id:'working-hours', tab:'Ch III · §100–109', group:2, title:'Regulation of Working Hours',
+    body:`
+      <p>Chapter IX (Sections 100–113) of the Act regulates the hours an adult worker may be required to work, balancing productivity with the worker's health and rest.</p>
+      <h4>Key Provisions</h4>
+      <ul>
+        <li><b>§100 — Daily hours:</b> max 8 hours/day (extendable to 10 with overtime under §108).</li>
+        <li><b>§101 — Interval for rest/meal:</b> no worker to work more than 6 continuous hours without a 1-hour break, or more than 5 hours without a ½-hour break.</li>
+        <li><b>§102 — Weekly hours:</b> max 48 hours/week (extendable to 60 with overtime; average 56/week over a year).</li>
+        <li><b>§103 — Weekly holiday:</b> one full day of rest per week.</li>
+        <li><b>§104 — Compensatory holiday:</b> if a worker is deprived of the weekly holiday, a compensatory one must be given.</li>
+        <li><b>§105 — Spread over:</b> the working day, including rest intervals, must not spread over more than 10.5 hours.</li>
+        <li><b>§108 — Overtime allowance:</b> double the ordinary rate of wages for extra hours worked.</li>
+        <li><b>§109 — Women workers:</b> cannot be required to work between 10 p.m. and 6 a.m. without consent.</li>
+      </ul>
+      <h4>Purpose</h4>
+      <p>These limits exist to prevent exploitation and safeguard workers' health, reflecting the Act's underlying philosophy of social justice.</p>
+    `,
+    mem:['§100 — 8 hrs/day (max 10 w/ OT)','§101 — break after 6 hrs continuous work','§102 — 48 hrs/week (max 60)','§103/104 — weekly + compensatory holiday','§105 — spread-over max 10.5 hrs','§108 — overtime = double wages','§109 — no night work for women w/o consent'],
+    plan:[['Introduction','1 min'],['Daily & weekly limits (§100–104)','5 min'],['Spread-over, overtime, women (§105–109)','5 min'],['Conclusion','1 min']]
+  },
+  {
+    id:'leave-proc', tab:'Ch II · §10', group:2, title:'Procedure of Applying for Leave',
+    body:`
+      <p>Section 10 of the Bangladesh Labour Act, 2006 lays down the complete procedure a worker must follow to obtain leave of absence, and the duties this places on the employer.</p>
+      <h4>Procedure</h4>
+      <ol>
+        <li>The worker applies to the employer <b>in writing</b>, stating the leave address (<span class="sec">§10(1)</span>).</li>
+        <li>The employer must issue an order within <b>7 days</b> of the application, or <b>2 days before</b> the leave is to begin — whichever is earlier (<span class="sec">§10(2)</span>).</li>
+        <li>If urgent leave is applied for starting on the date of application (or within 3 days), the order must be given <b>the same day</b>.</li>
+        <li>If granted, a <b>leave pass</b> is issued (<span class="sec">§10(3)</span>).</li>
+        <li>If refused or postponed, the reason must be communicated before the leave was to start, and recorded in a register (<span class="sec">§10(4)</span>).</li>
+        <li>For extension, the worker applies in advance and the employer replies in writing to the leave address (<span class="sec">§10(5)</span>).</li>
+      </ol>
+      <h4>Related</h4>
+      <p><span class="sec">Section 11</span> — if a worker leaves service before availing due annual leave, the employer must pay wages in lieu of the unavailed leave.</p>
+    `,
+    mem:['§10 — written application + leave address','7 days OR 2 days before leave, earlier wins','Urgent leave → same-day order','Leave pass on grant','Refusal reason + register entry','§11 — payment in lieu of unavailed leave'],
+    plan:[['Introduction','1 min'],['Steps 1–3 (application & order)','5 min'],['Steps 4–6 (pass, refusal, extension)','5 min'],['Conclusion','1 min']]
+  },
+  {
+    id:'leave-holidays', tab:'Ch III · §115–119', group:3, title:'Leave and Holidays of Worker',
+    body:`
+      <p>Sections 115 to 119 of the Act guarantee workers several categories of paid leave and holidays, ensuring rest and recovery time across the year.</p>
+      <h4>Types of Leave</h4>
+      <ul>
+        <li><b>§115 — Casual leave:</b> 10 days per calendar year, with wages; cannot be carried forward.</li>
+        <li><b>§116 — Sick leave:</b> 14 days per year on half average wages, supported by a medical certificate.</li>
+        <li><b>§117 — Annual leave with wages:</b> one day's leave for every 18 days worked (adult) or every 15 days (adolescent) in the previous year, for a worker who has completed one year of continuous service.</li>
+        <li><b>§118 — Festival holiday:</b> 11 days' paid festival holiday per year; if a worker is required to work on such a day, two compensatory days plus a substitute day's wages are due.</li>
+        <li><b>§119 — Calculation of wages during leave:</b> wages for leave/holiday period computed on the basis of the worker's average wages.</li>
+      </ul>
+      <h4>Conclusion</h4>
+      <p>Together, these provisions ensure workers get periodic rest without loss of income, an essential welfare safeguard under the Act.</p>
+    `,
+    mem:['§115 — Casual leave: 10 days/yr','§116 — Sick leave: 14 days/yr, half wages','§117 — Annual leave: 1 day per 18 worked','§118 — Festival holiday: 11 days/yr','§119 — wages calculated on average wage'],
+    plan:[['Introduction','1 min'],['Casual + Sick leave','4 min'],['Annual + Festival holiday','5 min'],['Conclusion','2 min']]
+  },
+  {
+    id:'illegal-strike', tab:'Ch XIV · §227', group:3, title:'When a Strike or Lockout is Illegal',
+    body:`
+      <p>Section 227 of the Act specifies the circumstances under which a strike or lock-out is deemed <b>illegal</b>, connecting back to the notice and procedural requirements of Chapter XIV.</p>
+      <h4>A Strike or Lock-out is Illegal If —</h4>
+      <ol>
+        <li>It is declared, commenced, or continued <b>without giving proper notice</b> to the other party in the prescribed manner, before or after the specified date, or in contravention of <span class="sec">§225</span> (which bars serving notice while conciliation, arbitration, Labour Court, or Tribunal proceedings are pending).</li>
+        <li>It is declared, commenced, or continued in <b>defiance of an order</b> made under §226 (power of the Labour Court/Tribunal to prohibit a strike or lock-out).</li>
+      </ol>
+      <h4>Consequences</h4>
+      <ul>
+        <li><b>§294 — Penalty:</b> a worker or employer taking part in an illegal strike/lock-out is punishable with imprisonment up to 1 year, or fine up to Tk. 5,000, or both.</li>
+        <li><b>§295:</b> instigating an illegal strike/lock-out carries the same punishment.</li>
+      </ul>
+      <h4>Conclusion</h4>
+      <p>The illegality turns primarily on procedural compliance — proper notice and respect for pending proceedings — rather than the underlying merits of the dispute.</p>
+    `,
+    mem:['§227 — illegal if no proper notice given','§225 — no notice while proceedings pending','§226 — illegal if in defiance of court/tribunal order','§294 — penalty: up to 1 yr jail / Tk.5,000 fine / both','§295 — same penalty for instigators'],
+    plan:[['Introduction','1 min'],['Grounds of illegality (§227, §225, §226)','6 min'],['Penalties (§294–295)','3 min'],['Conclusion','2 min']]
+  },
+  {
+    id:'pf', tab:'Ch XVII · §264', group:4, title:'Provident Fund (PF)',
+    body:`
+      <p>A provident fund (PF) under Chapter XVII of the Act is a retirement savings scheme where both employer and permanent worker make monthly contributions, held and administered on the worker's behalf.</p>
+      <h4>Key Provisions — Section 264</h4>
+      <ul>
+        <li><b>§264(1):</b> Any private-sector establishment <b>may</b> constitute a provident fund for its workers.</li>
+        <li><b>§264(10):</b> It <b>becomes mandatory</b> if at least three-fourths of the total workers demand it in writing.</li>
+        <li><b>§264(5):</b> The fund is managed by a <b>Board of Trustees</b> with equal representation of employer and workers.</li>
+        <li><b>§264(9):</b> A permanent worker who has completed one year of service contributes <b>7%–8%</b> of monthly basic wages; the employer contributes an <b>equal amount</b>.</li>
+      </ul>
+      <h4>Protection of the Fund</h4>
+      <ul>
+        <li><span class="sec">§29</span> — a worker's entitlement to PF (including employer's contribution) cannot be denied on retrenchment, dismissal, discharge, or termination, if he is entitled under the fund's rules.</li>
+        <li><span class="sec">§270</span> — the provident fund is not liable to attachment.</li>
+        <li>Separate PF schemes exist for tea plantation workers (<span class="sec">§265</span>) and newspaper workers (<span class="sec">§273</span>).</li>
+      </ul>
+      <h4>Conclusion</h4>
+      <p>The PF scheme gives private-sector workers a retirement safety net broadly equivalent to a pension, funded jointly by employer and employee.</p>
+    `,
+    mem:['§264(1) — PF optional, unless...','§264(10) — mandatory if 3/4th workers demand','§264(5) — Board of Trustees, equal reps','§264(9) — 7–8% contribution, matched by employer','§29 — PF cannot be denied on termination','§270 — PF not attachable'],
+    plan:[['Introduction','1 min'],['Formation & contribution rules','6 min'],['Protection of fund + tea/newspaper PF','3 min'],['Conclusion','2 min']]
+  },
+  {
+    id:'maternity', tab:'Ch IV · §45–50', group:4, title:'Maternity Benefit & Employment of Women',
+    body:`
+      <p>Chapter IV (Sections 45–50) protects women workers around childbirth by restricting their employment during a defined period and guaranteeing paid maternity benefit.</p>
+      <h4>Employment Restriction — §45</h4>
+      <ul>
+        <li>No employer may knowingly employ a woman during the <b>8 weeks</b> immediately following delivery, and no woman may work during that period.</li>
+        <li>Arduous work is barred if delivery is expected within <b>10 weeks</b>.</li>
+      </ul>
+      <h4>Right to Maternity Benefit — §46</h4>
+      <ul>
+        <li>Payable for <b>8 weeks before</b> and <b>8 weeks after</b> the expected delivery date.</li>
+        <li>Condition: the woman must have worked under the employer for <b>at least 6 months</b> immediately before delivery.</li>
+        <li>Not payable if she already has two or more surviving children (though leave itself is still allowed).</li>
+      </ul>
+      <h4>Procedure &amp; Amount</h4>
+      <ul>
+        <li><span class="sec">§47</span> — notice (oral or written) to employer; payment released against a medical certificate/proof of birth.</li>
+        <li><span class="sec">§48</span> — benefit computed on average daily/weekly/monthly wages of the preceding 3 months, paid wholly in cash.</li>
+        <li><span class="sec">§49</span> — if the woman dies, benefit is paid to whoever cares for the surviving child, or her nominee/legal representative.</li>
+        <li><span class="sec">§50</span> — termination of a woman's service without sufficient cause within 6 months before or 8 weeks after delivery does not deprive her of maternity benefit.</li>
+      </ul>
+    `,
+    mem:['§45 — no work 8 wks after delivery','§46 — benefit for 8 wks pre + 8 wks post delivery','Condition: 6 months prior service','§47 — notice + proof of birth','§48 — paid in cash, avg wage of last 3 months','§50 — protection from unfair termination'],
+    plan:[['Introduction','1 min'],['§45 employment restriction','3 min'],['§46–48 right, procedure, amount','5 min'],['Conclusion','3 min']]
+  },
+
+];
+
+const flashcards = [
+  {term:'Service', def:'Continuous employment of a worker under an employer; classified as apprentice, badli, casual, temporary, probationer, or permanent (§4). "Continuous service" of 1 year = 240 actual working days (§14).'},
+  {term:'Adolescent', def:'§2(viii) — a person who has completed the 14th year but not completed the 18th year of age. Employment is restricted and regulated under Chapter III.'},
+  {term:'Lockout vs Closure', def:'Lock-out (§2(lvii)) — employer shuts a place/refuses work over an industrial dispute, to pressure workers. Closure (§13) — employer shuts down a section following an illegal strike; broader and not tied to negotiating pressure.'},
+  {term:'Arbitrator', def:'§2(xlvi) — a person appointed as an arbitrator under Chapter XIV to settle an industrial dispute referred to him by agreement of both parties, and who gives a binding award.'},
+  {term:'Stoppage', def:'§12 — employer may stop work wholly/partly due to fire, breakdown, power failure, epidemic, civil commotion, etc. Workers notified; wages depend on duration (paid if detained >1 hr; layoff if stoppage >3 days).'}
+];
+
+// ---------- render ----------
+const groupTargets = {1:'grp-1',2:'grp-2',3:'grp-3',4:'grp-4'};
+const reviewed = new Set();
+
+function renderQueue(){
+  const q = document.getElementById('queueList');
+  q.innerHTML='';
+  topics.forEach((t,i)=>{
+    const div = document.createElement('div');
+    div.className = 'queue-item' + (reviewed.has(t.id)?' done':'');
+    div.onclick = ()=>openModal(t.id);
+    div.innerHTML = `<div class="queue-num">${i+1}</div><span class="qtitle">${t.title}</span>`;
+    q.appendChild(div);
+  });
+}
+
+function renderCards(){
+  Object.values(groupTargets).forEach(id=>document.getElementById(id).innerHTML='');
+  topics.forEach(t=>{
+    const el = document.createElement('div');
+    el.className='card';
+    el.onclick=()=>openModal(t.id);
+    el.innerHTML = `
+      <div class="tab">${t.tab}</div>
+      <h3>${t.title}</h3>
+      <p class="tag">5-mark question · ~12 min</p>
+      <div class="card-foot">
+        <span class="status-pill ${reviewed.has(t.id)?'done':''}">${reviewed.has(t.id)?'✓ Reviewed':'Not started'}</span>
+        <span class="open-link">Open file →</span>
+      </div>
+    `;
+    document.getElementById(groupTargets[t.group]).appendChild(el);
+  });
+}
+
+function renderFlash(){
+  const grid = document.getElementById('flashGrid');
+  grid.innerHTML='';
+  flashcards.forEach(f=>{
+    const el = document.createElement('div');
+    el.className='flash';
+    el.onclick=()=>el.classList.toggle('flipped');
+    el.innerHTML = `
+      <div class="flash-inner">
+        <div class="flash-face flash-front">${f.term}</div>
+        <div class="flash-face flash-back">${f.def}</div>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+}
+
+function updateProgress(){
+  const pct = Math.round((reviewed.size/topics.length)*100);
+  document.getElementById('ringPct').textContent = pct+'%';
+  const circumference = 326.7;
+  document.getElementById('ringFill').style.strokeDashoffset = circumference - (circumference*pct/100);
+  document.getElementById('marksSecured').textContent = (reviewed.size*5)+' / '+(topics.length*5);
+}
+
+let currentId = null;
+function openModal(id){
+  const t = topics.find(x=>x.id===id);
+  currentId = id;
+  document.getElementById('mTab').textContent = 'CASE FILE · ' + t.tab;
+  document.getElementById('mTitle').textContent = t.title;
+  let html = t.body;
+  html += `<h4>Quick Memorization</h4><div class="mem-box"><ul>` + t.mem.map(m=>`<li>${m}</li>`).join('') + `</ul></div>`;
+  html += `<h4>12-Minute Writing Plan</h4>` + t.plan.map(p=>`<div class="plan-row"><span>${p[0]}</span><span>${p[1]}</span></div>`).join('');
+  document.getElementById('mBody').innerHTML = html;
+  updateMarkBtn();
+  document.getElementById('overlay').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('overlay').classList.remove('open');
+  currentId=null;
+}
+function toggleReview(){
+  if(!currentId) return;
+  if(reviewed.has(currentId)) reviewed.delete(currentId);
+  else reviewed.add(currentId);
+  updateMarkBtn();
+  renderQueue(); renderCards(); updateProgress();
+}
+function updateMarkBtn(){
+  const btn = document.getElementById('markBtn');
+  if(reviewed.has(currentId)){
+    btn.textContent = 'Reviewed — Undo';
+    btn.classList.add('undo');
+  } else {
+    btn.textContent = 'Mark Reviewed ✓';
+    btn.classList.remove('undo');
+  }
+}
+document.getElementById('overlay').addEventListener('click', e=>{
+  if(e.target.id==='overlay') closeModal();
+});
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
+
+renderQueue(); renderCards(); renderFlash(); updateProgress();
+</script>
+</body>
+</html>
