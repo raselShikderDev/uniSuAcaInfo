@@ -8,28 +8,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#16233D;
-    --navy-deep:#0F1930;
-    --parchment:#F4EFE3;
-    --parchment-dim:#EAE2CF;
-    --gold:#C9A24B;
-    --gold-bright:#E4C067;
-    --maroon:#8B2E3C;
-    --sage:#5C8863;
-    --ink:#22303F;
-    --ink-soft:#5A6B7C;
-    --line: rgba(201,162,75,0.35);
-    --radius: 10px;
-    --shadow: 0 10px 30px rgba(15,25,48,0.35);
+    --navy:#4C4FCE;
+    --navy-deep:#3A3DB0;
+    --parchment:#FFFFFF;
+    --parchment-dim:#F1F1FE;
+    --gold:#FF9F43;
+    --gold-bright:#FFB25E;
+    --maroon:#FF6B6B;
+    --sage:#22C58B;
+    --ink:#2B2D42;
+    --ink-soft:#6B7089;
+    --line: rgba(76,79,206,0.18);
+    --radius: 14px;
+    --shadow: 0 10px 26px rgba(76,79,206,0.14);
+    --bg:#F6F7FF;
+    --text-onbg:#2B2D42;
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
     background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(201,162,75,0.10), transparent 60%),
-      radial-gradient(900px 500px at 100% 0%, rgba(139,46,60,0.14), transparent 55%),
-      var(--navy);
-    color:var(--parchment);
+      radial-gradient(1000px 500px at 8% -8%, rgba(255,159,67,0.10), transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, rgba(76,79,206,0.10), transparent 55%),
+      var(--bg);
+    color:var(--text-onbg);
     font-family:'IBM Plex Sans', sans-serif;
     min-height:100vh;
     padding:28px 20px 60px;
@@ -39,37 +41,38 @@
   /* ---------- HEADER ---------- */
   header.hero{
     display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between;
-    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+    background: linear-gradient(135deg, var(--navy), var(--navy-deep));
     border:1px solid var(--line);
     border-radius: var(--radius);
     padding: 26px 28px;
     margin-bottom:22px;
     position:relative;
     overflow:hidden;
+    box-shadow: var(--shadow);
   }
   header.hero::before{
     content:"";
     position:absolute; inset:0;
-    background: repeating-linear-gradient(90deg, transparent, transparent 78px, rgba(201,162,75,0.05) 79px, transparent 80px);
+    background: repeating-linear-gradient(90deg, transparent, transparent 78px, rgba(255,255,255,0.045) 79px, transparent 80px);
     pointer-events:none;
   }
   .hero-left{position:relative; z-index:1;}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     letter-spacing:.14em; text-transform:uppercase;
-    font-size:11px; color:var(--gold-bright); font-weight:600;
+    font-size:11px; color:#FFE1B8; font-weight:600;
     display:flex; align-items:center; gap:8px;
   }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--maroon); box-shadow:0 0 0 3px rgba(139,46,60,0.25);}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold); box-shadow:0 0 0 3px rgba(255,159,67,0.3);}
   h1{
     font-family:'Source Serif 4', serif;
     font-weight:700;
     font-size:clamp(26px, 4vw, 38px);
     margin: 6px 0 4px;
-    color:var(--parchment);
+    color:#FFFFFF;
     letter-spacing:.2px;
   }
-  .hero-left p{margin:0; color:var(--ink-soft); color:#C7CFDA; font-size:14.5px; max-width:520px;}
+  .hero-left p{margin:0; color:#DEDFFC; font-size:14.5px; max-width:520px;}
 
   .ring-block{
     display:flex; align-items:center; gap:16px; position:relative; z-index:1;
@@ -78,103 +81,105 @@
     width:104px;height:104px; position:relative;
   }
   .ring svg{transform:rotate(-90deg);}
-  .ring-track{fill:none; stroke:rgba(244,239,227,0.12); stroke-width:9;}
+  .ring-track{fill:none; stroke:rgba(255,255,255,0.18); stroke-width:9;}
   .ring-fill{fill:none; stroke:url(#goldGrad); stroke-width:9; stroke-linecap:round; transition: stroke-dashoffset .6s ease;}
   .ring-label{
     position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
   }
-  .ring-label .num{font-family:'Source Serif 4',serif; font-size:24px; font-weight:700; color:var(--gold-bright); line-height:1;}
-  .ring-label .sub{font-size:9.5px; color:#A9B4C2; letter-spacing:.08em; text-transform:uppercase; margin-top:2px;}
+  .ring-label .num{font-family:'Source Serif 4',serif; font-size:24px; font-weight:700; color:#FFFFFF; line-height:1;}
+  .ring-label .sub{font-size:9.5px; color:#DEDFFC; letter-spacing:.08em; text-transform:uppercase; margin-top:2px;}
   .marks-info{font-family:'IBM Plex Mono', monospace;}
-  .marks-info .big{font-size:22px; color:var(--parchment); font-weight:600;}
-  .marks-info .small{font-size:11.5px; color:#A9B4C2; letter-spacing:.03em;}
+  .marks-info .big{font-size:22px; color:#FFFFFF; font-weight:600;}
+  .marks-info .small{font-size:11.5px; color:#DEDFFC; letter-spacing:.03em;}
 
   /* ---------- LAYOUT ---------- */
   .layout{display:grid; grid-template-columns: 300px 1fr; gap:22px;}
   @media (max-width: 880px){ .layout{grid-template-columns: 1fr;} }
 
   .panel{
-    background: rgba(255,255,255,0.025);
+    background: #FFFFFF;
     border:1px solid var(--line);
     border-radius: var(--radius);
     padding:18px;
+    box-shadow: var(--shadow);
   }
   .panel h2{
     font-family:'Source Serif 4', serif;
-    font-size:15px; margin:0 0 4px; color:var(--gold-bright);
+    font-size:15px; margin:0 0 4px; color:var(--navy);
     display:flex; align-items:center; gap:8px;
   }
-  .panel .panel-sub{font-size:11.5px; color:#94A2B3; margin:0 0 14px;}
+  .panel .panel-sub{font-size:11.5px; color:var(--ink-soft); margin:0 0 14px;}
 
-  /* Priority queue */
+  /* Study order queue */
   .queue-item{
     display:flex; align-items:center; gap:10px;
-    padding:9px 8px; border-radius:8px; cursor:pointer;
+    padding:9px 8px; border-radius:10px; cursor:pointer;
     border:1px solid transparent;
     transition: background .15s ease, border-color .15s ease;
     font-size:13.2px;
   }
-  .queue-item:hover{background:rgba(201,162,75,0.08); border-color:var(--line);}
+  .queue-item:hover{background:var(--parchment-dim); border-color:var(--line);}
   .queue-num{
     width:22px;height:22px; border-radius:50%;
-    background:var(--navy-deep); border:1px solid var(--gold);
-    color:var(--gold-bright); font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    background:var(--parchment-dim); border:1.5px solid var(--gold);
+    color:var(--navy); font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .queue-item.done .queue-num{background:var(--sage); border-color:var(--sage); color:#0F1930;}
-  .queue-item.done span.qtitle{color:#8FBF98; text-decoration: line-through; text-decoration-color:rgba(143,191,152,0.5);}
-  .qtitle{color:#DCE3EA;}
+  .queue-item.done .queue-num{background:var(--sage); border-color:var(--sage); color:#FFFFFF;}
+  .queue-item.done span.qtitle{color:#19A876; text-decoration: line-through; text-decoration-color:rgba(34,197,139,0.45);}
+  .qtitle{color:var(--ink);}
 
-  .legend{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:11px; color:#8C9AAB; line-height:1.7;}
-  .legend b{color:var(--gold-bright);}
+  .legend{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:11px; color:var(--ink-soft); line-height:1.7;}
+  .legend b{color:var(--navy);}
 
   /* ---------- CHAPTER GROUPS ---------- */
   .chapter-group{margin-bottom:20px;}
   .chapter-title{
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--maroon-bright, var(--gold));
+    color:var(--navy); font-weight:700;
     display:flex; align-items:center; gap:10px;
     margin: 4px 0 10px;
   }
-  .chapter-title::after{content:""; flex:1; height:1px; background:var(--line);}
+  .chapter-title::after{content:""; flex:1; height:2px; border-radius:2px; background:var(--line);}
 
   .cards{
     display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:12px;
   }
   .card{
-    background: linear-gradient(180deg, rgba(244,239,227,0.045), rgba(244,239,227,0.015));
+    background: #FFFFFF;
     border:1px solid var(--line);
     border-radius: var(--radius);
     padding:16px 16px 14px;
     cursor:pointer;
     position:relative;
+    box-shadow: 0 2px 10px rgba(76,79,206,0.06);
     transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   }
   .card:hover{transform:translateY(-3px); box-shadow: var(--shadow); border-color:var(--gold);}
   .card .tab{
     position:absolute; top:-9px; left:16px;
-    background:var(--gold); color:var(--navy-deep);
+    background:var(--gold); color:#FFFFFF;
     font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:10px;
-    padding:3px 8px; border-radius:5px; letter-spacing:.03em;
+    padding:3px 8px; border-radius:6px; letter-spacing:.03em;
   }
   .card h3{
-    font-family:'Source Serif 4', serif; font-size:16.5px; margin:10px 0 6px; color:var(--parchment);
+    font-family:'Source Serif 4', serif; font-size:16.5px; margin:10px 0 6px; color:var(--ink);
     line-height:1.25;
   }
-  .card p.tag{font-size:11.5px; color:#94A2B3; margin:0 0 12px;}
+  .card p.tag{font-size:11.5px; color:var(--ink-soft); margin:0 0 12px;}
   .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:6px;}
   .status-pill{
     font-size:10px; padding:3px 9px; border-radius:20px; font-family:'IBM Plex Mono',monospace;
-    border:1px solid var(--line); color:#A9B4C2;
+    border:1px solid var(--line); color:var(--ink-soft);
   }
-  .status-pill.done{background:rgba(92,136,99,0.18); border-color:var(--sage); color:#9FCBA6;}
-  .open-link{font-size:12px; color:var(--gold-bright); font-weight:600;}
+  .status-pill.done{background:rgba(34,197,139,0.14); border-color:var(--sage); color:#19A876;}
+  .open-link{font-size:12px; color:var(--navy); font-weight:700;}
 
-  /* ---------- SHORT QUESTIONS ---------- */
-  .flash-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:12px;}
+  /* ---------- SHORT QUESTIONS (flashcards) ---------- */
+  .flash-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px,1fr)); gap:14px;}
   .flash{
-    perspective:1000px; height:118px; cursor:pointer;
+    perspective:1200px; height:170px; cursor:pointer;
   }
   .flash-inner{
     position:relative; width:100%; height:100%; transition: transform .5s;
@@ -184,55 +189,64 @@
   .flash-face{
     position:absolute; inset:0; backface-visibility:hidden;
     border-radius:var(--radius); border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center; text-align:center;
-    padding:12px; font-size:13px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+    padding:14px; box-shadow: 0 4px 14px rgba(76,79,206,0.10);
+    overflow:hidden;
   }
   .flash-front{
-    background: linear-gradient(160deg, rgba(139,46,60,0.28), rgba(22,35,61,0.4));
-    color:var(--parchment); font-family:'Source Serif 4', serif; font-size:16px; font-weight:600;
+    background: linear-gradient(160deg, var(--navy), var(--navy-deep));
+    color:#FFFFFF; font-family:'Source Serif 4', serif; font-size:16.5px; font-weight:700;
+    line-height:1.3;
+  }
+  .flash-front .tap-hint{
+    font-family:'IBM Plex Sans', sans-serif; font-weight:500; font-size:10.5px;
+    color:#FFE1B8; text-transform:uppercase; letter-spacing:.08em; margin-top:10px;
   }
   .flash-back{
-    background: linear-gradient(160deg, rgba(92,136,99,0.22), rgba(22,35,61,0.4));
+    background:#FFFFFF;
     transform: rotateY(180deg);
-    color:#E4EDE5; font-size:12.2px; line-height:1.5;
+    color:var(--ink); font-size:11.8px; line-height:1.55; text-align:left;
+    align-items:stretch; justify-content:flex-start;
+    overflow-y:auto; padding:14px 15px;
   }
+  .flash-back b{color:var(--navy);}
 
   /* ---------- MODAL ---------- */
   .overlay{
-    position:fixed; inset:0; background:rgba(10,15,28,0.72);
+    position:fixed; inset:0; background:rgba(43,45,66,0.55);
     backdrop-filter: blur(3px);
     display:none; align-items:flex-start; justify-content:center;
     padding: 40px 16px; z-index:50; overflow-y:auto;
   }
   .overlay.open{display:flex;}
   .modal{
-    background: var(--parchment);
+    background: #FFFFFF;
     color: var(--ink);
     width:100%; max-width:700px;
-    border-radius:14px;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    border-radius:18px;
+    box-shadow: 0 30px 80px rgba(43,45,66,0.35);
     overflow:hidden;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(43,45,66,0.06);
     animation: pop .22s ease;
   }
   @keyframes pop{ from{transform:translateY(10px); opacity:0;} to{transform:translateY(0); opacity:1;} }
   .modal-head{
     background: linear-gradient(135deg, var(--navy), var(--navy-deep));
-    color:var(--parchment);
+    color:#FFFFFF;
     padding:20px 24px;
     display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
   }
   .modal-head .m-tab{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--gold-bright);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:#FFE1B8;
     letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px;
   }
   .modal-head h2{font-family:'Source Serif 4', serif; margin:0; font-size:21px; line-height:1.3;}
   .close-btn{
-    background:rgba(244,239,227,0.1); border:1px solid rgba(244,239,227,0.25);
-    color:var(--parchment); width:30px;height:30px; border-radius:50%;
+    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);
+    color:#FFFFFF; width:30px;height:30px; border-radius:50%;
     cursor:pointer; font-size:15px; flex-shrink:0;
   }
-  .close-btn:hover{background:rgba(244,239,227,0.2);}
+  .close-btn:hover{background:rgba(255,255,255,0.28);}
   .modal-body{padding:22px 26px 8px; max-height:60vh; overflow-y:auto;}
   .modal-body h4{
     font-family:'IBM Plex Mono',monospace; text-transform:uppercase; font-size:11px; letter-spacing:.1em;
@@ -244,26 +258,26 @@
   .modal-body li{margin-bottom:4px;}
   .modal-body .sec{font-weight:700; color:var(--navy);}
   .mem-box{
-    background: var(--parchment-dim); border:1px dashed var(--gold);
-    border-radius:8px; padding:12px 14px; margin:8px 0 16px;
+    background: var(--parchment-dim); border:1.5px dashed var(--gold);
+    border-radius:10px; padding:12px 14px; margin:8px 0 16px;
   }
   .mem-box ul{margin:0; padding-left:18px;}
-  .plan-row{display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:5px 0; border-bottom:1px dotted rgba(0,0,0,0.12);}
+  .plan-row{display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:12px; padding:5px 0; border-bottom:1px dotted rgba(43,45,66,0.14);}
   .plan-row:last-child{border-bottom:none;}
   .modal-foot{
     padding:16px 26px 22px; display:flex; align-items:center; justify-content:space-between; gap:10px;
-    border-top:1px solid rgba(0,0,0,0.08);
+    border-top:1px solid rgba(43,45,66,0.08);
   }
   .mark-btn{
-    background: var(--sage); color:#0F1930; border:none; font-weight:700;
-    padding:10px 18px; border-radius:8px; cursor:pointer; font-size:13px;
+    background: var(--sage); color:#FFFFFF; border:none; font-weight:700;
+    padding:10px 18px; border-radius:10px; cursor:pointer; font-size:13px;
     font-family:'IBM Plex Sans', sans-serif;
   }
-  .mark-btn.undo{background:transparent; border:1px solid var(--ink-soft); color:var(--ink-soft); font-weight:600;}
-  .modal-foot .hint{font-size:11.5px; color:#7A8797;}
+  .mark-btn.undo{background:transparent; border:1.5px solid var(--ink-soft); color:var(--ink-soft); font-weight:600;}
+  .modal-foot .hint{font-size:11.5px; color:var(--ink-soft);}
 
   footer{
-    text-align:center; margin-top:30px; color:#7A8797; font-size:11.5px; font-family:'IBM Plex Mono',monospace;
+    text-align:center; margin-top:30px; color:var(--ink-soft); font-size:11.5px; font-family:'IBM Plex Mono',monospace;
   }
 </style>
 </head>
@@ -272,8 +286,8 @@
 <svg width="0" height="0">
   <defs>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E4C067"/>
-      <stop offset="100%" stop-color="#8B2E3C"/>
+      <stop offset="0%" stop-color="#FFB25E"/>
+      <stop offset="100%" stop-color="#FF6B6B"/>
     </linearGradient>
   </defs>
 </svg>
@@ -284,7 +298,7 @@
     <div class="hero-left">
       <div class="eyebrow"><span class="dot"></span> ONE-DAY CRAM · XLII OF 2006</div>
       <h1>Labour Law Exam Command Center</h1>
-      <p>Bangladesh Labour Act, 2006 — 10 case files curated for tomorrow's paper. Click any file to study, then mark it reviewed to track your 50 marks.</p>
+      <p>Bangladesh Labour Act, 2006 — 8 case files curated for tomorrow's paper. Click any file to study, then mark it reviewed to track your 40 marks.</p>
     </div>
     <div class="ring-block">
       <div class="ring">
@@ -309,8 +323,8 @@
       <p class="panel-sub">Your topics, in the order you gave.</p>
       <div id="queueList"></div>
       <div class="legend">
-        <div><b>Gold circle</b> — not yet reviewed</div>
-        <div><b>Sage circle</b> — reviewed ✓</div>
+        <div><b>Orange circle</b> — not yet reviewed</div>
+        <div><b>Green circle</b> — reviewed ✓</div>
         <div style="margin-top:8px;">Click a case file on the right, read it, then hit "Mark Reviewed" inside.</div>
       </div>
     </div>
@@ -334,8 +348,8 @@
         <div class="cards" id="grp-4"></div>
       </div>
       <div class="chapter-group">
-        <div class="chapter-title">Short Questions · Flip to reveal</div>
-        <div class="flash-grid" id="flashGrid"></div>
+        <div class="chapter-title">Short Questions · Click to open</div>
+        <div class="cards" id="shortGrid"></div>
       </div>
     </div>
   </div>
@@ -355,208 +369,17 @@
     </div>
     <div class="modal-body" id="mBody"></div>
     <div class="modal-foot">
-      <span class="hint">~250–350 words · ~12 min writing time</span>
+      <span class="hint" id="modalHint">~250–350 words · ~12 min writing time</span>
       <button class="mark-btn" id="markBtn" onclick="toggleReview()">Mark Reviewed ✓</button>
     </div>
   </div>
 </div>
 
 <script>
-/*const topics = [
-  {
-    id:'facilities', tab:'Ch VIII · §89–99', group:1, title:'Facilities Provided for the Workers',
-    body:`
-      <p>Chapter VIII (Sections 89–99) imposes a duty on every employer to provide certain welfare facilities to ensure the health, safety, and comfort of workers at the workplace.</p>
-      <h4>General Welfare Facilities</h4>
-      <ul>
-        <li><b>§89 — First-aid:</b> at least 1 box per 150 workers; nursing room if &gt;500 workers.</li>
-        <li><b>§90 — Safety Record Book:</b> mandatory if &gt;25 workers employed.</li>
-        <li><b>§91 — Washing facilities:</b> adequate, separate for men and women.</li>
-        <li><b>§92 — Canteens</b> and <b>§93 — Shelters/rest-rooms</b> as prescribed.</li>
-        <li><b>§94 — Room for children</b> below 6 years, where women workers are employed.</li>
-      </ul>
-      <h4>Tea Plantation Specific</h4>
-      <ul>
-        <li><span class="sec">§95</span> Recreational/educational facilities · <span class="sec">§96</span> Housing · <span class="sec">§97</span> Daily necessities.</li>
-      </ul>
-      <h4>Other</h4>
-      <ul>
-        <li><span class="sec">§98</span> — Medical care for newspaper workers.</li>
-        <li><span class="sec">§99</span> — Compulsory Group Insurance, as directed by Government.</li>
-      </ul>
-      <h4>Conclusion</h4>
-      <p>These welfare provisions reflect the Act's social-justice philosophy, giving workers a minimum standard of dignity and support beyond wages.</p>
-    `,
-    mem:['§89 — first aid: 1 box/150 workers','§90 — Safety Record Book (>25 workers)','§91 — washing facilities, separate by gender','§94 — room for children under 6','§95–97 — tea plantation facilities','§99 — compulsory group insurance'],
-    plan:[['Introduction','1 min'],['§89–94 general facilities','6 min'],['§95–99 tea plantation & insurance','4 min'],['Conclusion','1 min']]
-  },
-  {
-    id:'suspension', tab:'Ch II · §24', group:1, title:'Suspension Procedure',
-    body:`
-      <p>Suspension pending enquiry is dealt with under Section 24 of the Act, which also fixes the disciplinary procedure an employer must follow before punishing a worker under Section 23.</p>
-      <h4>Procedure for Punishment (§24)</h4>
-      <ol>
-        <li>Allegations must be recorded <b>in writing</b>.</li>
-        <li>Worker gets a copy and <b>at least 7 days</b> to explain.</li>
-        <li>Worker gets an <b>opportunity of being heard</b>.</li>
-        <li>Punishment follows only if found guilty <b>after enquiry</b>.</li>
-        <li>The employer/manager must <b>approve</b> the order.</li>
-      </ol>
-      <h4>Suspension Pending Enquiry — §24(2)</h4>
-      <ul>
-        <li>A charged worker may be suspended while the enquiry is pending.</li>
-        <li>Maximum period: <b>60 days</b> (unless matter is before a court).</li>
-        <li>Subsistence allowance during suspension = <b>half of average wages</b> + dearness/ad-hoc allowance.</li>
-        <li>Order of suspension must be <b>in writing</b> and takes effect immediately on delivery.</li>
-      </ul>
-      <h4>Outcome</h4>
-      <p>If guilty — no wages for the suspension period, only subsistence allowance (<span class="sec">§24(6)</span>). If not proved — treated as on duty, full wages payable, subsistence allowance adjusted (<span class="sec">§24(7)</span>).</p>
-    `,
-    mem:['§24 — writing, 7-day notice, hearing, enquiry, approval','§24(2) — suspension max 60 days','Subsistence allowance = ½ average wages','Suspension order must be in writing','Guilty → no wages, only subsistence','Not proved → full wages restored'],
-    plan:[['Introduction','1 min'],['Punishment procedure steps','5 min'],['Suspension rules & outcome','5 min'],['Conclusion','1 min']]
-  },
-  {
-    id:'working-hours', tab:'Ch III · §100–109', group:2, title:'Regulation of Working Hours',
-    body:`
-      <p>Chapter IX (Sections 100–113) of the Act regulates the hours an adult worker may be required to work, balancing productivity with the worker's health and rest.</p>
-      <h4>Key Provisions</h4>
-      <ul>
-        <li><b>§100 — Daily hours:</b> max 8 hours/day (extendable to 10 with overtime under §108).</li>
-        <li><b>§101 — Interval for rest/meal:</b> no worker to work more than 6 continuous hours without a 1-hour break, or more than 5 hours without a ½-hour break.</li>
-        <li><b>§102 — Weekly hours:</b> max 48 hours/week (extendable to 60 with overtime; average 56/week over a year).</li>
-        <li><b>§103 — Weekly holiday:</b> one full day of rest per week.</li>
-        <li><b>§104 — Compensatory holiday:</b> if a worker is deprived of the weekly holiday, a compensatory one must be given.</li>
-        <li><b>§105 — Spread over:</b> the working day, including rest intervals, must not spread over more than 10.5 hours.</li>
-        <li><b>§108 — Overtime allowance:</b> double the ordinary rate of wages for extra hours worked.</li>
-        <li><b>§109 — Women workers:</b> cannot be required to work between 10 p.m. and 6 a.m. without consent.</li>
-      </ul>
-      <h4>Purpose</h4>
-      <p>These limits exist to prevent exploitation and safeguard workers' health, reflecting the Act's underlying philosophy of social justice.</p>
-    `,
-    mem:['§100 — 8 hrs/day (max 10 w/ OT)','§101 — break after 6 hrs continuous work','§102 — 48 hrs/week (max 60)','§103/104 — weekly + compensatory holiday','§105 — spread-over max 10.5 hrs','§108 — overtime = double wages','§109 — no night work for women w/o consent'],
-    plan:[['Introduction','1 min'],['Daily & weekly limits (§100–104)','5 min'],['Spread-over, overtime, women (§105–109)','5 min'],['Conclusion','1 min']]
-  },
-  {
-    id:'leave-proc', tab:'Ch II · §10', group:2, title:'Procedure of Applying for Leave',
-    body:`
-      <p>Section 10 of the Bangladesh Labour Act, 2006 lays down the complete procedure a worker must follow to obtain leave of absence, and the duties this places on the employer.</p>
-      <h4>Procedure</h4>
-      <ol>
-        <li>The worker applies to the employer <b>in writing</b>, stating the leave address (<span class="sec">§10(1)</span>).</li>
-        <li>The employer must issue an order within <b>7 days</b> of the application, or <b>2 days before</b> the leave is to begin — whichever is earlier (<span class="sec">§10(2)</span>).</li>
-        <li>If urgent leave is applied for starting on the date of application (or within 3 days), the order must be given <b>the same day</b>.</li>
-        <li>If granted, a <b>leave pass</b> is issued (<span class="sec">§10(3)</span>).</li>
-        <li>If refused or postponed, the reason must be communicated before the leave was to start, and recorded in a register (<span class="sec">§10(4)</span>).</li>
-        <li>For extension, the worker applies in advance and the employer replies in writing to the leave address (<span class="sec">§10(5)</span>).</li>
-      </ol>
-      <h4>Related</h4>
-      <p><span class="sec">Section 11</span> — if a worker leaves service before availing due annual leave, the employer must pay wages in lieu of the unavailed leave.</p>
-    `,
-    mem:['§10 — written application + leave address','7 days OR 2 days before leave, earlier wins','Urgent leave → same-day order','Leave pass on grant','Refusal reason + register entry','§11 — payment in lieu of unavailed leave'],
-    plan:[['Introduction','1 min'],['Steps 1–3 (application & order)','5 min'],['Steps 4–6 (pass, refusal, extension)','5 min'],['Conclusion','1 min']]
-  },
-  {
-    id:'leave-holidays', tab:'Ch III · §115–119', group:3, title:'Leave and Holidays of Worker',
-    body:`
-      <p>Sections 115 to 119 of the Act guarantee workers several categories of paid leave and holidays, ensuring rest and recovery time across the year.</p>
-      <h4>Types of Leave</h4>
-      <ul>
-        <li><b>§115 — Casual leave:</b> 10 days per calendar year, with wages; cannot be carried forward.</li>
-        <li><b>§116 — Sick leave:</b> 14 days per year on half average wages, supported by a medical certificate.</li>
-        <li><b>§117 — Annual leave with wages:</b> one day's leave for every 18 days worked (adult) or every 15 days (adolescent) in the previous year, for a worker who has completed one year of continuous service.</li>
-        <li><b>§118 — Festival holiday:</b> 11 days' paid festival holiday per year; if a worker is required to work on such a day, two compensatory days plus a substitute day's wages are due.</li>
-        <li><b>§119 — Calculation of wages during leave:</b> wages for leave/holiday period computed on the basis of the worker's average wages.</li>
-      </ul>
-      <h4>Conclusion</h4>
-      <p>Together, these provisions ensure workers get periodic rest without loss of income, an essential welfare safeguard under the Act.</p>
-    `,
-    mem:['§115 — Casual leave: 10 days/yr','§116 — Sick leave: 14 days/yr, half wages','§117 — Annual leave: 1 day per 18 worked','§118 — Festival holiday: 11 days/yr','§119 — wages calculated on average wage'],
-    plan:[['Introduction','1 min'],['Casual + Sick leave','4 min'],['Annual + Festival holiday','5 min'],['Conclusion','2 min']]
-  },
-  {
-    id:'illegal-strike', tab:'Ch XIV · §227', group:3, title:'When a Strike or Lockout is Illegal',
-    body:`
-      <p>Section 227 of the Act specifies the circumstances under which a strike or lock-out is deemed <b>illegal</b>, connecting back to the notice and procedural requirements of Chapter XIV.</p>
-      <h4>A Strike or Lock-out is Illegal If —</h4>
-      <ol>
-        <li>It is declared, commenced, or continued <b>without giving proper notice</b> to the other party in the prescribed manner, before or after the specified date, or in contravention of <span class="sec">§225</span> (which bars serving notice while conciliation, arbitration, Labour Court, or Tribunal proceedings are pending).</li>
-        <li>It is declared, commenced, or continued in <b>defiance of an order</b> made under §226 (power of the Labour Court/Tribunal to prohibit a strike or lock-out).</li>
-      </ol>
-      <h4>Consequences</h4>
-      <ul>
-        <li><b>§294 — Penalty:</b> a worker or employer taking part in an illegal strike/lock-out is punishable with imprisonment up to 1 year, or fine up to Tk. 5,000, or both.</li>
-        <li><b>§295:</b> instigating an illegal strike/lock-out carries the same punishment.</li>
-      </ul>
-      <h4>Conclusion</h4>
-      <p>The illegality turns primarily on procedural compliance — proper notice and respect for pending proceedings — rather than the underlying merits of the dispute.</p>
-    `,
-    mem:['§227 — illegal if no proper notice given','§225 — no notice while proceedings pending','§226 — illegal if in defiance of court/tribunal order','§294 — penalty: up to 1 yr jail / Tk.5,000 fine / both','§295 — same penalty for instigators'],
-    plan:[['Introduction','1 min'],['Grounds of illegality (§227, §225, §226)','6 min'],['Penalties (§294–295)','3 min'],['Conclusion','2 min']]
-  },
-  {
-    id:'pf', tab:'Ch XVII · §264', group:4, title:'Provident Fund (PF)',
-    body:`
-      <p>A provident fund (PF) under Chapter XVII of the Act is a retirement savings scheme where both employer and permanent worker make monthly contributions, held and administered on the worker's behalf.</p>
-      <h4>Key Provisions — Section 264</h4>
-      <ul>
-        <li><b>§264(1):</b> Any private-sector establishment <b>may</b> constitute a provident fund for its workers.</li>
-        <li><b>§264(10):</b> It <b>becomes mandatory</b> if at least three-fourths of the total workers demand it in writing.</li>
-        <li><b>§264(5):</b> The fund is managed by a <b>Board of Trustees</b> with equal representation of employer and workers.</li>
-        <li><b>§264(9):</b> A permanent worker who has completed one year of service contributes <b>7%–8%</b> of monthly basic wages; the employer contributes an <b>equal amount</b>.</li>
-      </ul>
-      <h4>Protection of the Fund</h4>
-      <ul>
-        <li><span class="sec">§29</span> — a worker's entitlement to PF (including employer's contribution) cannot be denied on retrenchment, dismissal, discharge, or termination, if he is entitled under the fund's rules.</li>
-        <li><span class="sec">§270</span> — the provident fund is not liable to attachment.</li>
-        <li>Separate PF schemes exist for tea plantation workers (<span class="sec">§265</span>) and newspaper workers (<span class="sec">§273</span>).</li>
-      </ul>
-      <h4>Conclusion</h4>
-      <p>The PF scheme gives private-sector workers a retirement safety net broadly equivalent to a pension, funded jointly by employer and employee.</p>
-    `,
-    mem:['§264(1) — PF optional, unless...','§264(10) — mandatory if 3/4th workers demand','§264(5) — Board of Trustees, equal reps','§264(9) — 7–8% contribution, matched by employer','§29 — PF cannot be denied on termination','§270 — PF not attachable'],
-    plan:[['Introduction','1 min'],['Formation & contribution rules','6 min'],['Protection of fund + tea/newspaper PF','3 min'],['Conclusion','2 min']]
-  },
-  {
-    id:'maternity', tab:'Ch IV · §45–50', group:4, title:'Maternity Benefit & Employment of Women',
-    body:`
-      <p>Chapter IV (Sections 45–50) protects women workers around childbirth by restricting their employment during a defined period and guaranteeing paid maternity benefit.</p>
-      <h4>Employment Restriction — §45</h4>
-      <ul>
-        <li>No employer may knowingly employ a woman during the <b>8 weeks</b> immediately following delivery, and no woman may work during that period.</li>
-        <li>Arduous work is barred if delivery is expected within <b>10 weeks</b>.</li>
-      </ul>
-      <h4>Right to Maternity Benefit — §46</h4>
-      <ul>
-        <li>Payable for <b>8 weeks before</b> and <b>8 weeks after</b> the expected delivery date.</li>
-        <li>Condition: the woman must have worked under the employer for <b>at least 6 months</b> immediately before delivery.</li>
-        <li>Not payable if she already has two or more surviving children (though leave itself is still allowed).</li>
-      </ul>
-      <h4>Procedure &amp; Amount</h4>
-      <ul>
-        <li><span class="sec">§47</span> — notice (oral or written) to employer; payment released against a medical certificate/proof of birth.</li>
-        <li><span class="sec">§48</span> — benefit computed on average daily/weekly/monthly wages of the preceding 3 months, paid wholly in cash.</li>
-        <li><span class="sec">§49</span> — if the woman dies, benefit is paid to whoever cares for the surviving child, or her nominee/legal representative.</li>
-        <li><span class="sec">§50</span> — termination of a woman's service without sufficient cause within 6 months before or 8 weeks after delivery does not deprive her of maternity benefit.</li>
-      </ul>
-    `,
-    mem:['§45 — no work 8 wks after delivery','§46 — benefit for 8 wks pre + 8 wks post delivery','Condition: 6 months prior service','§47 — notice + proof of birth','§48 — paid in cash, avg wage of last 3 months','§50 — protection from unfair termination'],
-    plan:[['Introduction','1 min'],['§45 employment restriction','3 min'],['§46–48 right, procedure, amount','5 min'],['Conclusion','3 min']]
-  },
-
-];
-
-const flashcards = [
-  {term:'Service', def:'Continuous employment of a worker under an employer; classified as apprentice, badli, casual, temporary, probationer, or permanent (§4). "Continuous service" of 1 year = 240 actual working days (§14).'},
-  {term:'Adolescent', def:'§2(viii) — a person who has completed the 14th year but not completed the 18th year of age. Employment is restricted and regulated under Chapter III.'},
-  {term:'Lockout vs Closure', def:'Lock-out (§2(lvii)) — employer shuts a place/refuses work over an industrial dispute, to pressure workers. Closure (§13) — employer shuts down a section following an illegal strike; broader and not tied to negotiating pressure.'},
-  {term:'Arbitrator', def:'§2(xlvi) — a person appointed as an arbitrator under Chapter XIV to settle an industrial dispute referred to him by agreement of both parties, and who gives a binding award.'},
-  {term:'Stoppage', def:'§12 — employer may stop work wholly/partly due to fire, breakdown, power failure, epidemic, civil commotion, etc. Workers notified; wages depend on duration (paid if detained >1 hr; layoff if stoppage >3 days).'}
-];
-*/
 const topics = [
   {
     id: 'facilities',
-    tab: 'Ch VIII · §89–99',
+    tab: 'Ch VIII \u00b7 \u00a789\u201399',
     group: 1,
     title: 'Facilities Provided for the Workers',
 
@@ -566,42 +389,42 @@ const topics = [
       <h4>Major Welfare Facilities</h4>
       <ol>
         <li>
-          <b>First-Aid Appliances (§89):</b>
+          <b>First-Aid Appliances (\u00a789):</b>
           Every establishment must provide readily accessible first-aid boxes or cupboards during working hours, at least <b>1 for every 150 workers</b>. Establishments employing <b>300 or more workers</b> must provide a sick room with a dispensary and prescribed medical and nursing staff.
         </li>
 
         <li>
-          <b>Safety Record Book (§90):</b>
+          <b>Safety Record Book (\u00a790):</b>
           Every factory or establishment employing <b>more than 25 workers</b> must maintain a compulsory safety record book and display a safety information board.
         </li>
 
         <li>
-          <b>Safety Committee (§90A):</b>
+          <b>Safety Committee (\u00a790A):</b>
           Every factory employing <b>50 or more workers</b> must have a safety committee formed and operated according to the prescribed rules.
         </li>
 
         <li>
-          <b>Washing Facilities (§91):</b>
+          <b>Washing Facilities (\u00a791):</b>
           Adequate and suitable bathrooms and washing facilities must be provided. They must be separate for male and female workers, properly screened, clean, and easily accessible.
         </li>
 
         <li>
-          <b>Canteen (§92):</b>
+          <b>Canteen (\u00a792):</b>
           An establishment where <b>more than 100 workers</b> are ordinarily employed must provide an adequate number of canteens.
         </li>
 
         <li>
-          <b>Dining Room (§93):</b>
+          <b>Dining Room (\u00a793):</b>
           An establishment employing <b>more than 25 workers</b> must provide suitable dining rooms with drinking water where workers can eat meals brought by them and take rest.
         </li>
 
         <li>
-          <b>Rooms for Children (§94):</b>
+          <b>Rooms for Children (\u00a794):</b>
           Where <b>40 or more female workers</b> are ordinarily employed, suitable rooms must be provided for their children under <b>6 years of age</b>, with adequate facilities and trained or experienced female care.
         </li>
 
         <li>
-          <b>Group Insurance (§99):</b>
+          <b>Group Insurance (\u00a799):</b>
           An establishment employing at least <b>100 permanent workers</b> must introduce group insurance under the existing insurance laws.
         </li>
       </ol>
@@ -611,64 +434,41 @@ const topics = [
     `,
 
     mem: [
-      '§89 — First-aid: 1 box/cupboard per 150 workers; sick room at 300+ workers',
-      '§90 — Safety record book: more than 25 workers',
-      '§90A — Safety committee: 50+ workers in a factory',
-      '§91 — Washing facilities, separate for male/female workers',
-      '§92 — Canteen: more than 100 workers',
-      '§93 — Dining room: more than 25 workers',
-      '§94 — Children under 6: 40+ female workers',
-      '§99 — Group insurance: 100+ permanent workers'
+      '\u00a789 \u2014 First-aid: 1 box/cupboard per 150 workers; sick room at 300+ workers',
+      '\u00a790 \u2014 Safety record book: more than 25 workers',
+      '\u00a790A \u2014 Safety committee: 50+ workers in a factory',
+      '\u00a791 \u2014 Washing facilities, separate for male/female workers',
+      '\u00a792 \u2014 Canteen: more than 100 workers',
+      '\u00a793 \u2014 Dining room: more than 25 workers',
+      '\u00a794 \u2014 Children under 6: 40+ female workers',
+      '\u00a799 \u2014 Group insurance: 100+ permanent workers'
     ],
 
     plan: [
       ['Introduction', '1 min'],
-      ['§89–94 Welfare Facilities', '8 min'],
-      ['§99 Group Insurance', '2 min'],
+      ['\u00a789\u201394 Welfare Facilities', '8 min'],
+      ['\u00a799 Group Insurance', '2 min'],
       ['Conclusion', '1 min']
     ]
   },
 
   {
     id: 'suspension',
-    tab: 'Ch II · §24',
+    tab: 'Ch II \u00b7 \u00a724',
     group: 1,
     title: 'Suspension Procedure',
 
     body: `
       <p>Section 24 of the Bangladesh Labour Act, 2006 establishes the procedure for punishment of a worker for misconduct and provides rules for suspension pending enquiry.</p>
 
-      <h4>Procedure Before Punishment (§24)</h4>
+      <h4>Procedure Before Punishment (\u00a724)</h4>
       <ol>
-        <li>
-          <b>Written Allegation:</b>
-          The allegation against the worker must be recorded in writing.
-        </li>
-
-        <li>
-          <b>Opportunity to Explain:</b>
-          The worker must receive a copy of the allegation and be given at least <b>7 days</b> to explain.
-        </li>
-
-        <li>
-          <b>Opportunity of Hearing:</b>
-          The worker must be given an opportunity to be heard.
-        </li>
-
-        <li>
-          <b>Enquiry Committee:</b>
-          The worker must be found guilty after an enquiry by a committee consisting of an <b>equal number of employer and worker representatives</b>.
-        </li>
-
-        <li>
-          <b>Time Limit:</b>
-          The enquiry must normally be completed within <b>60 days</b>.
-        </li>
-
-        <li>
-          <b>Approval of Dismissal:</b>
-          Where dismissal is ordered, the employer or manager must approve the order.
-        </li>
+        <li><b>Written Allegation:</b> The allegation against the worker must be recorded in writing.</li>
+        <li><b>Opportunity to Explain:</b> The worker must receive a copy of the allegation and be given at least <b>7 days</b> to explain.</li>
+        <li><b>Opportunity of Hearing:</b> The worker must be given an opportunity to be heard.</li>
+        <li><b>Enquiry Committee:</b> The worker must be found guilty after an enquiry by a committee consisting of an <b>equal number of employer and worker representatives</b>.</li>
+        <li><b>Time Limit:</b> The enquiry must normally be completed within <b>60 days</b>.</li>
+        <li><b>Approval of Dismissal:</b> Where dismissal is ordered, the employer or manager must approve the order.</li>
       </ol>
 
       <h4>Suspension Pending Enquiry</h4>
@@ -683,13 +483,8 @@ const topics = [
 
       <h4>Result of Enquiry</h4>
       <ul>
-        <li>
-          <b>If Guilty:</b> If punished under section 23(1), the worker is not entitled to wages for the suspension period but remains entitled to the subsistence allowance.
-        </li>
-
-        <li>
-          <b>If Not Guilty:</b> The worker is deemed to have been on duty during the suspension period and receives wages for that period, after adjustment of the subsistence allowance already paid.
-        </li>
+        <li><b>If Guilty:</b> If punished under section 23(1), the worker is not entitled to wages for the suspension period but remains entitled to the subsistence allowance.</li>
+        <li><b>If Not Guilty:</b> The worker is deemed to have been on duty during the suspension period and receives wages for that period, after adjustment of the subsistence allowance already paid.</li>
       </ul>
 
       <h4>Conclusion</h4>
@@ -697,15 +492,15 @@ const topics = [
     `,
 
     mem: [
-      '§24 — Written allegation',
+      '\u00a724 \u2014 Written allegation',
       'At least 7 days to explain',
       'Right to be heard',
       'Equal employer-worker enquiry committee',
       'Enquiry normally completed within 60 days',
       'Suspension normally max 60 days pending enquiry',
       'Subsistence allowance + other allowances in full',
-      'Guilty → no wages for suspension period, but subsistence allowance',
-      'Not guilty → deemed on duty + wages after adjustment'
+      'Guilty \u2192 no wages for suspension period, but subsistence allowance',
+      'Not guilty \u2192 deemed on duty + wages after adjustment'
     ],
 
     plan: [
@@ -718,7 +513,7 @@ const topics = [
 
   {
     id: 'working-hours',
-    tab: 'Ch IX · §100–109',
+    tab: 'Ch IX \u00b7 \u00a7100\u2013109',
     group: 2,
     title: 'Regulation of Working Hours',
 
@@ -727,40 +522,13 @@ const topics = [
 
       <h4>Core Provisions</h4>
       <ol>
-        <li>
-          <b>Daily Working Hours (§100):</b>
-          An adult worker ordinarily cannot work more than <b>8 hours a day</b>. Subject to the overtime provisions, a worker may work up to <b>10 hours in a day</b>.
-        </li>
-
-        <li>
-          <b>Rest or Meal Intervals (§101):</b>
-          A worker cannot work for more than <b>6 hours</b> without a 1-hour interval, more than <b>5 hours</b> without a half-hour interval, or more than <b>8 hours</b> without either one 1-hour interval or two half-hour intervals.
-        </li>
-
-        <li>
-          <b>Weekly Working Hours (§102):</b>
-          An adult worker ordinarily cannot work more than <b>48 hours per week</b>. Subject to the Act, total working hours may reach <b>60 hours per week</b>, with an annual average of <b>56 hours per week</b>.
-        </li>
-
-        <li>
-          <b>Weekly Holiday (§103):</b>
-          Workers are entitled to weekly holidays according to the type of establishment: generally <b>1.5 days</b> for shops/commercial/industrial establishments and <b>1 day</b> for factories and establishments, subject to the specific statutory provisions.
-        </li>
-
-        <li>
-          <b>Spread-over (§105):</b>
-          The period of work of an adult worker, excluding the rest or meal interval under §101, should not spread over more than <b>10 hours</b>, subject to permitted government exceptions.
-        </li>
-
-        <li>
-          <b>Overtime (§108):</b>
-          Where a worker works more than the hours fixed under the Act, overtime allowance is payable at <b>twice the ordinary rate of basic wage and dearness allowance and ad-hoc/interim wage, if any</b>.
-        </li>
-
-        <li>
-          <b>Night Work for Women (§109):</b>
-          A woman worker cannot, without her consent, be allowed to work between <b>10:00 PM and 6:00 AM</b>.
-        </li>
+        <li><b>Daily Working Hours (\u00a7100):</b> An adult worker ordinarily cannot work more than <b>8 hours a day</b>. Subject to the overtime provisions, a worker may work up to <b>10 hours in a day</b>.</li>
+        <li><b>Rest or Meal Intervals (\u00a7101):</b> A worker cannot work for more than <b>6 hours</b> without a 1-hour interval, more than <b>5 hours</b> without a half-hour interval, or more than <b>8 hours</b> without either one 1-hour interval or two half-hour intervals.</li>
+        <li><b>Weekly Working Hours (\u00a7102):</b> An adult worker ordinarily cannot work more than <b>48 hours per week</b>. Subject to the Act, total working hours may reach <b>60 hours per week</b>, with an annual average of <b>56 hours per week</b>.</li>
+        <li><b>Weekly Holiday (\u00a7103):</b> Workers are entitled to weekly holidays according to the type of establishment: generally <b>1.5 days</b> for shops/commercial/industrial establishments and <b>1 day</b> for factories and establishments, subject to the specific statutory provisions.</li>
+        <li><b>Spread-over (\u00a7105):</b> The period of work of an adult worker, excluding the rest or meal interval under \u00a7101, should not spread over more than <b>10 hours</b>, subject to permitted government exceptions.</li>
+        <li><b>Overtime (\u00a7108):</b> Where a worker works more than the hours fixed under the Act, overtime allowance is payable at <b>twice the ordinary rate of basic wage and dearness allowance and ad-hoc/interim wage, if any</b>.</li>
+        <li><b>Night Work for Women (\u00a7109):</b> A woman worker cannot, without her consent, be allowed to work between <b>10:00 PM and 6:00 AM</b>.</li>
       </ol>
 
       <h4>Conclusion</h4>
@@ -768,13 +536,13 @@ const topics = [
     `,
 
     mem: [
-      '§100 — 8 hrs/day ordinarily; up to 10 hrs with overtime',
-      '§101 — Rest: 1 hr after 6 hrs; 30 min after 5 hrs; special rule after 8 hrs',
-      '§102 — 48 hrs/week ordinarily; max 60 hrs/week; annual average 56 hrs',
-      '§103 — Weekly holiday according to establishment type',
-      '§105 — Spread-over normally not more than 10 hrs',
-      '§108 — Overtime = twice ordinary basic wage + DA/ad-hoc/interim wage',
-      '§109 — Women: 10 PM–6 AM requires consent'
+      '\u00a7100 \u2014 8 hrs/day ordinarily; up to 10 hrs with overtime',
+      '\u00a7101 \u2014 Rest: 1 hr after 6 hrs; 30 min after 5 hrs; special rule after 8 hrs',
+      '\u00a7102 \u2014 48 hrs/week ordinarily; max 60 hrs/week; annual average 56 hrs',
+      '\u00a7103 \u2014 Weekly holiday according to establishment type',
+      '\u00a7105 \u2014 Spread-over normally not more than 10 hrs',
+      '\u00a7108 \u2014 Overtime = twice ordinary basic wage + DA/ad-hoc/interim wage',
+      '\u00a7109 \u2014 Women: 10 PM\u20136 AM requires consent'
     ],
 
     plan: [
@@ -788,7 +556,7 @@ const topics = [
 
   {
     id: 'leave-proc',
-    tab: 'Ch II · §10–11',
+    tab: 'Ch II \u00b7 \u00a710\u201311',
     group: 2,
     title: 'Procedure of Applying for Leave',
 
@@ -797,38 +565,15 @@ const topics = [
 
       <h4>Procedure Flow</h4>
       <ol>
-        <li>
-          <b>Written Application:</b>
-          A worker who wants leave must apply to the employer <b>in writing</b> and state his or her <b>address during the leave</b>.
-        </li>
-
-        <li>
-          <b>Employer's Order:</b>
-          The employer or authorized officer must issue an order within <b>7 days</b> of receiving the application or <b>2 days before the commencement of leave</b>, whichever is earlier.
-        </li>
-
-        <li>
-          <b>Urgent Leave:</b>
-          If the leave is to begin on the date of application or within <b>3 days</b>, the order must be given on the day the application is received.
-        </li>
-
-        <li>
-          <b>Leave Pass:</b>
-          If the leave is granted, a formal <b>leave pass</b> must be issued.
-        </li>
-
-        <li>
-          <b>Refusal or Postponement:</b>
-          If leave is refused or postponed, the fact and reasons must be communicated to the worker before the expected commencement date and recorded in the relevant register.
-        </li>
-
-        <li>
-          <b>Extension:</b>
-          A worker who wants to extend leave must apply in writing by registered post before the reasonable time of expiry, and the employer must send a written reply to the worker's leave address.
-        </li>
+        <li><b>Written Application:</b> A worker who wants leave must apply to the employer <b>in writing</b> and state his or her <b>address during the leave</b>.</li>
+        <li><b>Employer's Order:</b> The employer or authorized officer must issue an order within <b>7 days</b> of receiving the application or <b>2 days before the commencement of leave</b>, whichever is earlier.</li>
+        <li><b>Urgent Leave:</b> If the leave is to begin on the date of application or within <b>3 days</b>, the order must be given on the day the application is received.</li>
+        <li><b>Leave Pass:</b> If the leave is granted, a formal <b>leave pass</b> must be issued.</li>
+        <li><b>Refusal or Postponement:</b> If leave is refused or postponed, the fact and reasons must be communicated to the worker before the expected commencement date and recorded in the relevant register.</li>
+        <li><b>Extension:</b> A worker who wants to extend leave must apply in writing by registered post before the reasonable time of expiry, and the employer must send a written reply to the worker's leave address.</li>
       </ol>
 
-      <h4>Payment for Unavailed Leave (§11)</h4>
+      <h4>Payment for Unavailed Leave (\u00a711)</h4>
       <p>If employment terminates and annual leave remains due, the employer must pay wages in lieu of the unavailed leave.</p>
 
       <h4>Conclusion</h4>
@@ -836,26 +581,26 @@ const topics = [
     `,
 
     mem: [
-      '§10 — Written leave application + address during leave',
+      '\u00a710 \u2014 Written leave application + address during leave',
       'Employer order: within 7 days OR 2 days before leave, whichever is earlier',
-      'Urgent leave → same-day order',
-      'Granted leave → leave pass',
-      'Refusal/postponement + reasons → communicated and recorded',
-      'Extension → written application by registered post',
-      '§11 — Wages in lieu of unavailed annual leave on termination'
+      'Urgent leave \u2192 same-day order',
+      'Granted leave \u2192 leave pass',
+      'Refusal/postponement + reasons \u2192 communicated and recorded',
+      'Extension \u2192 written application by registered post',
+      '\u00a711 \u2014 Wages in lieu of unavailed annual leave on termination'
     ],
 
     plan: [
       ['Introduction', '1 min'],
       ['Application & Employer Decision', '5 min'],
       ['Urgent Leave, Refusal & Extension', '4 min'],
-      ['§11 + Conclusion', '2 min']
+      ['\u00a711 + Conclusion', '2 min']
     ]
   },
 
   {
     id: 'leave-holidays',
-    tab: 'Ch IX · §103, §115–119',
+    tab: 'Ch IX \u00b7 \u00a7103, \u00a7115\u2013119',
     group: 3,
     title: 'Leave and Holidays of Worker',
 
@@ -864,30 +609,11 @@ const topics = [
 
       <h4>Statutory Leave and Holiday Entitlements</h4>
       <ul>
-        <li>
-          <b>Weekly Holiday (§103):</b>
-          Workers receive weekly holidays according to the type of establishment. Generally, workers in shops, commercial and industrial establishments receive <b>1.5 days</b> per week, while workers in factories and establishments receive <b>1 day</b> per week. No deduction shall be made from wages for these holidays.
-        </li>
-
-        <li>
-          <b>Casual Leave (§115):</b>
-          Workers are entitled to <b>10 days of casual leave with full wages</b> in a calendar year. Such leave cannot be accumulated or carried forward.
-        </li>
-
-        <li>
-          <b>Sick Leave (§116):</b>
-          Workers are entitled to <b>14 days of sick leave with full wages</b> in a calendar year, subject to the statutory requirements including medical certification. Such leave cannot be accumulated.
-        </li>
-
-        <li>
-          <b>Annual Earned Leave (§117):</b>
-          An adult worker who has completed <b>1 year of continuous service</b> receives annual leave with wages calculated at <b>1 day for every 18 days of work</b> in a factory, shop, commercial/industrial establishment, or road transport establishment. Different rates apply to tea plantations and newspaper workers and to adolescent workers.
-        </li>
-
-        <li>
-          <b>Festival Holidays (§118):</b>
-          Every worker is entitled to <b>11 festival holidays with wages</b> in a calendar year. If a worker is required to work on a festival holiday, the worker must receive <b>one substitute holiday and two days' compensatory wages</b>.
-        </li>
+        <li><b>Weekly Holiday (\u00a7103):</b> Workers receive weekly holidays according to the type of establishment. Generally, workers in shops, commercial and industrial establishments receive <b>1.5 days</b> per week, while workers in factories and establishments receive <b>1 day</b> per week. No deduction shall be made from wages for these holidays.</li>
+        <li><b>Casual Leave (\u00a7115):</b> Workers are entitled to <b>10 days of casual leave with full wages</b> in a calendar year. Such leave cannot be accumulated or carried forward.</li>
+        <li><b>Sick Leave (\u00a7116):</b> Workers are entitled to <b>14 days of sick leave with full wages</b> in a calendar year, subject to the statutory requirements including medical certification. Such leave cannot be accumulated.</li>
+        <li><b>Annual Earned Leave (\u00a7117):</b> An adult worker who has completed <b>1 year of continuous service</b> receives annual leave with wages calculated at <b>1 day for every 18 days of work</b> in a factory, shop, commercial/industrial establishment, or road transport establishment. Different rates apply to tea plantations and newspaper workers and to adolescent workers.</li>
+        <li><b>Festival Holidays (\u00a7118):</b> Every worker is entitled to <b>11 festival holidays with wages</b> in a calendar year. If a worker is required to work on a festival holiday, the worker must receive <b>one substitute holiday and two days' compensatory wages</b>.</li>
       </ul>
 
       <h4>Conclusion</h4>
@@ -895,12 +621,12 @@ const topics = [
     `,
 
     mem: [
-      '§103 — Weekly holiday according to establishment type',
-      '§115 — Casual leave: 10 days with full wages, non-cumulative',
-      '§116 — Sick leave: 14 days with full wages, subject to statutory requirements',
-      '§117 — Adult earned leave: 1 day per 18 days of work in factory/shop/commercial/industrial/road transport establishments',
-      '§118 — Festival holidays: 11 days with wages',
-      'Festival holiday worked → 1 substitute holiday + 2 days compensatory wages'
+      '\u00a7103 \u2014 Weekly holiday according to establishment type',
+      '\u00a7115 \u2014 Casual leave: 10 days with full wages, non-cumulative',
+      '\u00a7116 \u2014 Sick leave: 14 days with full wages, subject to statutory requirements',
+      '\u00a7117 \u2014 Adult earned leave: 1 day per 18 days of work',
+      '\u00a7118 \u2014 Festival holidays: 11 days with wages',
+      'Festival holiday worked \u2192 1 substitute holiday + 2 days compensatory wages'
     ],
 
     plan: [
@@ -913,40 +639,25 @@ const topics = [
 
   {
     id: 'illegal-strike',
-    tab: 'Ch XIV · §227',
+    tab: 'Ch XIV \u00b7 \u00a7227',
     group: 3,
     title: 'When a Strike or Lockout is Illegal',
 
     body: `
       <p>Section 227 of the Bangladesh Labour Act, 2006 specifies when a strike or lock-out is considered illegal because statutory dispute-resolution and notice requirements have not been followed.</p>
 
-      <h4>Grounds Rendering a Strike or Lockout Illegal (§227)</h4>
+      <h4>Grounds Rendering a Strike or Lockout Illegal (\u00a7227)</h4>
       <ol>
-        <li>
-          <b>Improper Notice or Timing:</b>
-          The strike or lock-out is declared, commenced, or continued without giving the other party the required notice, before or after the date specified in the notice, or in contravention of §225.
-        </li>
-
-        <li>
-          <b>Improperly Raised Industrial Dispute:</b>
-          The strike or lock-out is declared, commenced, or continued as a result of an industrial dispute raised in a manner other than that provided under <b>§209</b>.
-        </li>
-
-        <li>
-          <b>Violation of Prohibition Order:</b>
-          The strike or lock-out is continued in contravention of an order made under <b>§211 or §226</b>.
-        </li>
-
-        <li>
-          <b>Existing Settlement or Award:</b>
-          The strike or lock-out is declared, commenced, or continued while a settlement or award concerning the matter is in operation.
-        </li>
+        <li><b>Improper Notice or Timing:</b> The strike or lock-out is declared, commenced, or continued without giving the other party the required notice, before or after the date specified in the notice, or in contravention of \u00a7225.</li>
+        <li><b>Improperly Raised Industrial Dispute:</b> The strike or lock-out is declared, commenced, or continued as a result of an industrial dispute raised in a manner other than that provided under <b>\u00a7209</b>.</li>
+        <li><b>Violation of Prohibition Order:</b> The strike or lock-out is continued in contravention of an order made under <b>\u00a7211 or \u00a7226</b>.</li>
+        <li><b>Existing Settlement or Award:</b> The strike or lock-out is declared, commenced, or continued while a settlement or award concerning the matter is in operation.</li>
       </ol>
 
-      <h4>Statutory Exception (§227(2))</h4>
+      <h4>Statutory Exception (\u00a7227(2))</h4>
       <p>A lock-out declared in consequence of an illegal strike, and a strike declared in consequence of an illegal lock-out, shall not be deemed to be illegal.</p>
 
-      <h4>Penal Provisions (§294)</h4>
+      <h4>Penal Provisions (\u00a7294)</h4>
       <p>A worker who commences, continues, or acts in furtherance of an illegal strike may face imprisonment for up to <b>6 months</b>, a fine up to <b>Tk. 5,000</b>, or both. An employer committing an illegal lock-out faces the same maximum penalty.</p>
 
       <h4>Conclusion</h4>
@@ -954,26 +665,26 @@ const topics = [
     `,
 
     mem: [
-      '§227 — 4 main grounds of illegality',
-      'Ground 1 — Improper/no notice, wrong timing, or §225 violation',
-      'Ground 2 — Dispute not raised under §209',
-      'Ground 3 — Violation of §211 or §226 order',
-      'Ground 4 — Settlement or award already in operation',
-      '§227(2) — Illegal strike ↔ responsive lock-out exception',
-      '§294 — Up to 6 months imprisonment / Tk. 5,000 fine / both'
+      '\u00a7227 \u2014 4 main grounds of illegality',
+      'Ground 1 \u2014 Improper/no notice, wrong timing, or \u00a7225 violation',
+      'Ground 2 \u2014 Dispute not raised under \u00a7209',
+      'Ground 3 \u2014 Violation of \u00a7211 or \u00a7226 order',
+      'Ground 4 \u2014 Settlement or award already in operation',
+      '\u00a7227(2) \u2014 Illegal strike \u2194 responsive lock-out exception',
+      '\u00a7294 \u2014 Up to 6 months imprisonment / Tk. 5,000 fine / both'
     ],
 
     plan: [
       ['Introduction', '1 min'],
-      ['4 Grounds under §227', '7 min'],
-      ['Exception + §294 Penalty', '3 min'],
+      ['4 Grounds under \u00a7227', '7 min'],
+      ['Exception + \u00a7294 Penalty', '3 min'],
       ['Conclusion', '1 min']
     ]
   },
 
   {
     id: 'pf',
-    tab: 'Ch XVII · §264',
+    tab: 'Ch XVII \u00b7 \u00a7264',
     group: 4,
     title: 'Provident Fund (PF) Explanation',
 
@@ -981,55 +692,23 @@ const topics = [
       <p><b>Question:</b> <i>Under Bangladesh labour regulations, a provident fund (PF) is a retirement savings plan where employers and permanent employees make monthly contributions. Explain it.</i></p>
 
       <h4>Definition & Statutory Foundation</h4>
-      <p>Under Chapter XVII, §264 of the Bangladesh Labour Act, 2006, a private-sector establishment may constitute a provident fund for the benefit of its workers. The fund is governed through a statutory framework concerning trustees, worker and employer contributions, investment, and administration.</p>
+      <p>Under Chapter XVII, \u00a7264 of the Bangladesh Labour Act, 2006, a private-sector establishment may constitute a provident fund for the benefit of its workers. The fund is governed through a statutory framework concerning trustees, worker and employer contributions, investment, and administration.</p>
 
-      <h4>Key Statutory Framework (§264)</h4>
+      <h4>Key Statutory Framework (\u00a7264)</h4>
       <ol>
-        <li>
-          <b>Establishment of PF:</b>
-          A private-sector establishment may constitute a provident fund for its workers. Where the Government makes applicable rules for such establishments, the concerned establishment must comply with those rules.
-        </li>
-
-        <li>
-          <b>Mandatory Constitution on Workers' Demand:</b>
-          A private-sector establishment must constitute a provident fund if at least <b>three-fourths (75%) of the total workers</b> demand it from the employer by written application. The employer must make the necessary provisions and the fund must start operating within <b>6 months</b> of receiving the application.
-        </li>
-
-        <li>
-          <b>Board of Trustees:</b>
-          The PF is administered by a <b>Board of Trustees</b> consisting of an equal number of employer and worker representatives. A person nominated by the Government serves as chairman.
-        </li>
-
-        <li>
-          <b>Worker Contribution:</b>
-          Every permanent worker, after completing <b>1 year of service</b> in an establishment where the PF is constituted, subscribes monthly, unless otherwise agreed, at a rate of <b>not less than 7% and not more than 8% of monthly basic wages</b>.
-        </li>
-
-        <li>
-          <b>Employer Contribution:</b>
-          The employer contributes an <b>equal amount</b> to the worker's contribution.
-        </li>
-
-        <li>
-          <b>Investment:</b>
-          At least <b>50%</b> of the total accumulations must be invested in specified safe instruments, including ICB Mutual Fund Certificates, ICB Unit Certificates, and Government securities including defence and postal savings certificates.
-        </li>
-
-        <li>
-          <b>Maintenance Cost:</b>
-          The cost of maintaining the provident fund is borne by the employer.
-        </li>
+        <li><b>Establishment of PF:</b> A private-sector establishment may constitute a provident fund for its workers. Where the Government makes applicable rules for such establishments, the concerned establishment must comply with those rules.</li>
+        <li><b>Mandatory Constitution on Workers' Demand:</b> A private-sector establishment must constitute a provident fund if at least <b>three-fourths (75%) of the total workers</b> demand it from the employer by written application. The employer must make the necessary provisions and the fund must start operating within <b>6 months</b> of receiving the application.</li>
+        <li><b>Board of Trustees:</b> The PF is administered by a <b>Board of Trustees</b> consisting of an equal number of employer and worker representatives. A person nominated by the Government serves as chairman.</li>
+        <li><b>Worker Contribution:</b> Every permanent worker, after completing <b>1 year of service</b> in an establishment where the PF is constituted, subscribes monthly, unless otherwise agreed, at a rate of <b>not less than 7% and not more than 8% of monthly basic wages</b>.</li>
+        <li><b>Employer Contribution:</b> The employer contributes an <b>equal amount</b> to the worker's contribution.</li>
+        <li><b>Investment:</b> At least <b>50%</b> of the total accumulations must be invested in specified safe instruments, including ICB Mutual Fund Certificates, ICB Unit Certificates, and Government securities including defence and postal savings certificates.</li>
+        <li><b>Maintenance Cost:</b> The cost of maintaining the provident fund is borne by the employer.</li>
       </ol>
 
       <h4>Protection of PF Benefits</h4>
       <ul>
-        <li>
-          <b>§29:</b> A worker who is a member of a provident fund and entitled to benefits from it, including the employer's contribution, shall not be deprived of those benefits because of retrenchment, discharge, dismissal, retirement, removal, termination of service, or death.
-        </li>
-
-        <li>
-          <b>§270:</b> The amount standing to the worker's PF credit is not liable to attachment under a court decree or order for debts or liabilities incurred by the worker.
-        </li>
+        <li><b>\u00a729:</b> A worker who is a member of a provident fund and entitled to benefits from it, including the employer's contribution, shall not be deprived of those benefits because of retrenchment, discharge, dismissal, retirement, removal, termination of service, or death.</li>
+        <li><b>\u00a7270:</b> The amount standing to the worker's PF credit is not liable to attachment under a court decree or order for debts or liabilities incurred by the worker.</li>
       </ul>
 
       <h4>Conclusion</h4>
@@ -1037,16 +716,16 @@ const topics = [
     `,
 
     mem: [
-      '§264 — Provident fund for private-sector establishments',
-      '75% worker demand in writing → PF must be constituted',
+      '\u00a7264 \u2014 Provident fund for private-sector establishments',
+      '75% worker demand in writing \u2192 PF must be constituted',
       'PF must start operating within 6 months of the demand',
-      'Board of Trustees → equal employer and worker representation + Government-nominated chairman',
-      'Permanent worker + 1 year service → monthly subscription',
-      'Worker contribution = 7%–8% of basic wages',
+      'Board of Trustees \u2192 equal employer/worker reps + Govt-nominated chairman',
+      'Permanent worker + 1 year service \u2192 monthly subscription',
+      'Worker contribution = 7%\u20138% of basic wages',
       'Employer contributes an equal amount',
-      'At least 50% of accumulations → specified investments',
-      '§29 — PF benefits protected from deprivation due to termination-related events',
-      '§270 — PF balance protected from court attachment for worker debts'
+      'At least 50% of accumulations \u2192 specified investments',
+      '\u00a729 \u2014 PF benefits protected from deprivation due to termination-related events',
+      '\u00a7270 \u2014 PF balance protected from court attachment for worker debts'
     ],
 
     plan: [
@@ -1060,36 +739,35 @@ const topics = [
 
   {
     id: 'maternity',
-    tab: 'Ch IV · §45–50',
+    tab: 'Ch IV \u00b7 \u00a745\u201350',
     group: 4,
     title: 'Maternity Benefit & Employment of Women',
 
     body: `
       <p>Chapter IV of the Bangladesh Labour Act, 2006 provides maternity benefits and protections for women workers in connection with childbirth.</p>
 
-      <h4>Employment Restrictions (§45)</h4>
+      <h4>Employment Restrictions (\u00a745)</h4>
       <ul>
         <li>An employer shall not knowingly employ a woman in an establishment during the <b>8 weeks immediately following the day of her delivery</b>.</li>
         <li>A woman cannot be employed during the prescribed period before and after delivery in work that is of an arduous nature, involves long hours of standing, or is otherwise likely to adversely affect her health, subject to the statutory conditions.</li>
       </ul>
 
-      <h4>Entitlement & Eligibility (§46)</h4>
+      <h4>Entitlement & Eligibility (\u00a746)</h4>
       <ul>
         <li>A female worker is entitled to <b>16 weeks of maternity benefit</b>, consisting of <b>8 weeks before delivery and 8 weeks after delivery</b>, subject to the Act.</li>
         <li>The worker must have completed at least <b>6 months of continuous service</b> immediately preceding the day of delivery to qualify under the relevant provision.</li>
         <li>The statutory maternity benefit is subject to the Act's limitation concerning the number of surviving children.</li>
       </ul>
 
-      <h4>Amount of Maternity Benefit (§48)</h4>
+      <h4>Amount of Maternity Benefit (\u00a748)</h4>
       <ul>
         <li>The maternity benefit is paid wholly in cash.</li>
         <li>The daily, weekly, or monthly average wage is calculated based on the woman's wages during the <b>3 months immediately preceding the date of notice</b>, divided by the number of days she actually worked during that period.</li>
       </ul>
 
-      <h4>Protection Relating to Termination (§50)</h4>
+      <h4>Protection Relating to Termination (\u00a750)</h4>
       <ul>
         <li>If an employer gives a notice or order of discharge, dismissal, removal, or otherwise terminates the employment of a woman worker within <b>6 months before or 8 weeks after delivery</b> without sufficient cause, she shall <b>not be deprived of the maternity benefit</b> to which she would otherwise have been entitled.</li>
-        <li><b>Important:</b> Section 50 should not be stated as saying that every such termination is automatically "void." The statutory protection specifically preserves the worker's maternity benefit where the termination is without sufficient cause.</li>
       </ul>
 
       <h4>Conclusion</h4>
@@ -1097,51 +775,57 @@ const topics = [
     `,
 
     mem: [
-      '§45 — No employment during the 8 weeks immediately following delivery',
-      '§46 — 16 weeks maternity benefit: 8 weeks before + 8 weeks after delivery',
+      '\u00a745 \u2014 No employment during the 8 weeks immediately following delivery',
+      '\u00a746 \u2014 16 weeks maternity benefit: 8 weeks before + 8 weeks after delivery',
       'Eligibility includes 6 months of continuous service',
       'Statutory limitation applies concerning surviving children',
-      '§48 — Benefit paid wholly in cash based on average wages from the preceding 3 months',
-      '§50 — Without sufficient cause, termination within 6 months before or 8 weeks after delivery cannot deprive the worker of maternity benefit'
+      '\u00a748 \u2014 Benefit paid wholly in cash based on average wages from the preceding 3 months',
+      '\u00a750 \u2014 Without sufficient cause, termination cannot deprive the worker of maternity benefit'
     ],
 
     plan: [
       ['Introduction', '1 min'],
-      ['§45 Employment Restrictions', '3 min'],
-      ['§46 Entitlement & Eligibility', '4 min'],
-      ['§48 Amount + §50 Protection', '4 min'],
+      ['\u00a745 Employment Restrictions', '3 min'],
+      ['\u00a746 Entitlement & Eligibility', '4 min'],
+      ['\u00a748 Amount + \u00a750 Protection', '4 min'],
       ['Conclusion', '1 min']
     ]
   }
 ];
 
-
-const flashcards = [
+const shortQuestions = [
   {
-    term: 'Service (Continuous Service)',
-    def: '<b>Statutory Ref:</b> Section 14 BLA 2006.<br><b>Key Points:</b><br>• For the purposes of Chapter II, a worker who has actually worked at least <b>240 days</b> in the preceding 12 calendar months is deemed to have completed <b>1 year</b> of continuous service.<br>• At least <b>120 days</b> counts as 6 months of continuous service for the purposes of the Chapter.<br>• Certain days such as lay-off, sickness/accident leave, legal strike or illegal lock-out, and maternity leave up to 16 weeks are also counted according to §14.'
+    id: 'sq-service',
+    tab: 'Short · 2 marks',
+    title: 'Service',
+    body: `<p>Service means the period during which a worker remains employed under an employer. Under Section 14, a worker is deemed to have completed <b>1 year of continuous service</b> if he has actually worked for at least <b>240 days</b> during the preceding 12 months.</p>`
   },
-
   {
-    term: 'Adolescent',
-    def: '<b>Statutory Ref:</b> Section 2(8) BLA 2006.<br><b>Key Points:</b><br>• An adolescent is a person who has completed the <b>14th year</b> but has not completed the <b>18th year</b> of age.<br>• An adolescent generally requires a <b>certificate of fitness</b> from a registered medical practitioner, subject to the statutory exceptions.<br>• In a factory or mine, maximum ordinary working time is <b>5 hours/day and 30 hours/week</b>.<br>• In other establishments, maximum ordinary working time is <b>7 hours/day and 42 hours/week</b>.<br>• No adolescent may work between <b>7:00 PM and 7:00 AM</b>.'
+    id: 'sq-adolescent',
+    tab: 'Short · 2 marks',
+    title: 'Adolescent',
+    body: `<p>An adolescent is a person who has completed the <b>14th year</b> but has not completed the <b>18th year</b> of age. The employment of adolescents is subject to special restrictions under the Bangladesh Labour Act, 2006.</p>`
   },
-
   {
-    term: 'Lockout vs Closure',
-    def: '<b>Lock-out (§2(57)):</b> Closing a place of work or part of it, suspending work wholly or partly, or refusing to continue allowing workers to work, where the closing, suspension, or refusal occurs in connection with an industrial dispute or is intended to compel workers.<br><br><b>Closure (§13):</b> An employer may close wholly or partly a section or establishment in the event of an <b>illegal strike</b> in that section or department, subject to the statutory provisions.<br><br><b>Difference:</b> A lock-out is an employer action connected with an industrial dispute; the specific statutory closure under §13 occurs in response to an illegal strike.'
+    id: 'sq-lockout-closure',
+    tab: 'Short · 2 marks',
+    title: 'Lock-out vs Closure',
+    body: `<p>A <b>lock-out</b> means closing or suspending work, or refusing to allow workers to continue working, in connection with an industrial dispute. <b>Closure</b> under Section 13 means closing an establishment or part of it in consequence of an illegal strike.</p>`
   },
-
   {
-    term: 'Arbitrator',
-    def: '<b>Statutory Ref:</b> Section 2(46) & Chapter XIV BLA 2006.<br><b>Key Points:</b><br>• An Arbitrator is an Arbitrator appointed under Chapter XIV.<br>• When conciliation fails, the parties may agree in writing to refer the dispute to an Arbitrator.<br>• The Arbitrator may be selected from the Government panel or may be another person agreed upon by the parties.<br>• The Arbitrator gives an <b>award</b>.<br>• The award is <b>final and no appeal lies against it</b>.'
+    id: 'sq-arbitrator',
+    tab: 'Short · 2 marks',
+    title: 'Arbitrator',
+    body: `<p>An Arbitrator is a person appointed under Chapter XIV to settle an industrial dispute referred to arbitration by agreement of the parties. The Arbitrator gives an <b>award</b>, which is final and cannot be appealed.</p>`
   },
-
   {
-    term: 'Stoppage',
-    def: `<b>Statutory Ref:</b> Section 12 BLA 2006.<br><b>Key Points:</b><br>• An employer may stop work wholly or partly because of events such as <b>fire, sudden catastrophe, machinery breakdown, power-supply stoppage, epidemics, widespread riots, or another cause beyond the employer's control</b>.<br>• If the stoppage continues for more than <b>1 working day</b>, concerned non-casual/non-substitute workers are entitled to wages for stopped working days exceeding 1 day, subject to the Act.<br>• If the stoppage exceeds <b>3 working days</b>, the concerned workers shall be laid off according to §16.<br>• This is distinct from the statutory <b>closure under §13</b>, which concerns closure in response to an illegal strike.`
+    id: 'sq-stoppage',
+    tab: 'Short · 2 marks',
+    title: 'Stoppage',
+    body: `<p>Stoppage of work occurs when an employer stops work wholly or partly because of events such as <b>fire, machinery breakdown, power failure, epidemic, riot, or another cause beyond the employer's control</b>. If the stoppage continues for more than 3 working days, the concerned workers may be laid off according to the Act.</p>`
   }
 ];
+
 // ---------- render ----------
 const groupTargets = {1:'grp-1',2:'grp-2',3:'grp-3',4:'grp-4'};
 const reviewed = new Set();
@@ -1177,17 +861,20 @@ function renderCards(){
   });
 }
 
-function renderFlash(){
-  const grid = document.getElementById('flashGrid');
+function renderShort(){
+  const grid = document.getElementById('shortGrid');
   grid.innerHTML='';
-  flashcards.forEach(f=>{
+  shortQuestions.forEach(q=>{
     const el = document.createElement('div');
-    el.className='flash';
-    el.onclick=()=>el.classList.toggle('flipped');
+    el.className='card';
+    el.onclick=()=>openModal(q.id);
     el.innerHTML = `
-      <div class="flash-inner">
-        <div class="flash-face flash-front">${f.term}</div>
-        <div class="flash-face flash-back">${f.def}</div>
+      <div class="tab">${q.tab}</div>
+      <h3>${q.title}</h3>
+      <p class="tag">2-mark question</p>
+      <div class="card-foot">
+        <span class="status-pill ${reviewed.has(q.id)?'done':''}">${reviewed.has(q.id)?'✓ Reviewed':'Not started'}</span>
+        <span class="open-link">Open answer →</span>
       </div>
     `;
     grid.appendChild(el);
@@ -1195,23 +882,34 @@ function renderFlash(){
 }
 
 function updateProgress(){
-  const pct = Math.round((reviewed.size/topics.length)*100);
+  const doneTopics = topics.filter(t=>reviewed.has(t.id)).length;
+  const pct = Math.round((doneTopics/topics.length)*100);
   document.getElementById('ringPct').textContent = pct+'%';
   const circumference = 326.7;
   document.getElementById('ringFill').style.strokeDashoffset = circumference - (circumference*pct/100);
-  document.getElementById('marksSecured').textContent = (reviewed.size*5)+' / '+(topics.length*5);
+  document.getElementById('marksSecured').textContent = (doneTopics*5)+' / '+(topics.length*5);
+}
+
+function findItem(id){
+  return topics.find(x=>x.id===id) || shortQuestions.find(x=>x.id===id);
 }
 
 let currentId = null;
 function openModal(id){
-  const t = topics.find(x=>x.id===id);
+  const t = findItem(id);
+  const isShort = !!shortQuestions.find(x=>x.id===id);
   currentId = id;
-  document.getElementById('mTab').textContent = 'CASE FILE · ' + t.tab;
+  document.getElementById('mTab').textContent = (isShort ? 'SHORT ANSWER · ' : 'CASE FILE · ') + t.tab;
   document.getElementById('mTitle').textContent = t.title;
   let html = t.body;
-  html += `<h4>Quick Memorization</h4><div class="mem-box"><ul>` + t.mem.map(m=>`<li>${m}</li>`).join('') + `</ul></div>`;
-  html += `<h4>12-Minute Writing Plan</h4>` + t.plan.map(p=>`<div class="plan-row"><span>${p[0]}</span><span>${p[1]}</span></div>`).join('');
+  if(t.mem){
+    html += `<h4>Quick Memorization</h4><div class="mem-box"><ul>` + t.mem.map(m=>`<li>${m}</li>`).join('') + `</ul></div>`;
+  }
+  if(t.plan){
+    html += `<h4>12-Minute Writing Plan</h4>` + t.plan.map(p=>`<div class="plan-row"><span>${p[0]}</span><span>${p[1]}</span></div>`).join('');
+  }
   document.getElementById('mBody').innerHTML = html;
+  document.getElementById('modalHint').textContent = isShort ? '' : '~250–350 words · ~12 min writing time';
   updateMarkBtn();
   document.getElementById('overlay').classList.add('open');
 }
@@ -1224,7 +922,7 @@ function toggleReview(){
   if(reviewed.has(currentId)) reviewed.delete(currentId);
   else reviewed.add(currentId);
   updateMarkBtn();
-  renderQueue(); renderCards(); updateProgress();
+  renderQueue(); renderCards(); renderShort(); updateProgress();
 }
 function updateMarkBtn(){
   const btn = document.getElementById('markBtn');
@@ -1241,7 +939,7 @@ document.getElementById('overlay').addEventListener('click', e=>{
 });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModal(); });
 
-renderQueue(); renderCards(); renderFlash(); updateProgress();
+renderQueue(); renderCards(); renderShort(); updateProgress();
 </script>
 </body>
 </html>
