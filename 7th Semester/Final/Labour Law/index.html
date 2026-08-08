@@ -362,7 +362,7 @@
 </div>
 
 <script>
-const topics = [
+/*const topics = [
   {
     id:'facilities', tab:'Ch VIII · §89–99', group:1, title:'Facilities Provided for the Workers',
     body:`
@@ -552,7 +552,596 @@ const flashcards = [
   {term:'Arbitrator', def:'§2(xlvi) — a person appointed as an arbitrator under Chapter XIV to settle an industrial dispute referred to him by agreement of both parties, and who gives a binding award.'},
   {term:'Stoppage', def:'§12 — employer may stop work wholly/partly due to fire, breakdown, power failure, epidemic, civil commotion, etc. Workers notified; wages depend on duration (paid if detained >1 hr; layoff if stoppage >3 days).'}
 ];
+*/
+const topics = [
+  {
+    id: 'facilities',
+    tab: 'Ch VIII · §89–99',
+    group: 1,
+    title: 'Facilities Provided for the Workers',
 
+    body: `
+      <p>Facilities provided for workers are statutory welfare measures under Chapter VIII of the Bangladesh Labour Act, 2006. They aim to protect workers' health, safety, hygiene, welfare, and basic workplace needs.</p>
+
+      <h4>Major Welfare Facilities</h4>
+      <ol>
+        <li>
+          <b>First-Aid Appliances (§89):</b>
+          Every establishment must provide readily accessible first-aid boxes or cupboards during working hours, at least <b>1 for every 150 workers</b>. Establishments employing <b>300 or more workers</b> must provide a sick room with a dispensary and prescribed medical and nursing staff.
+        </li>
+
+        <li>
+          <b>Safety Record Book (§90):</b>
+          Every factory or establishment employing <b>more than 25 workers</b> must maintain a compulsory safety record book and display a safety information board.
+        </li>
+
+        <li>
+          <b>Safety Committee (§90A):</b>
+          Every factory employing <b>50 or more workers</b> must have a safety committee formed and operated according to the prescribed rules.
+        </li>
+
+        <li>
+          <b>Washing Facilities (§91):</b>
+          Adequate and suitable bathrooms and washing facilities must be provided. They must be separate for male and female workers, properly screened, clean, and easily accessible.
+        </li>
+
+        <li>
+          <b>Canteen (§92):</b>
+          An establishment where <b>more than 100 workers</b> are ordinarily employed must provide an adequate number of canteens.
+        </li>
+
+        <li>
+          <b>Dining Room (§93):</b>
+          An establishment employing <b>more than 25 workers</b> must provide suitable dining rooms with drinking water where workers can eat meals brought by them and take rest.
+        </li>
+
+        <li>
+          <b>Rooms for Children (§94):</b>
+          Where <b>40 or more female workers</b> are ordinarily employed, suitable rooms must be provided for their children under <b>6 years of age</b>, with adequate facilities and trained or experienced female care.
+        </li>
+
+        <li>
+          <b>Group Insurance (§99):</b>
+          An establishment employing at least <b>100 permanent workers</b> must introduce group insurance under the existing insurance laws.
+        </li>
+      </ol>
+
+      <h4>Conclusion</h4>
+      <p>These statutory welfare measures establish minimum workplace standards and help protect workers' health, safety, hygiene, welfare, and dignity.</p>
+    `,
+
+    mem: [
+      '§89 — First-aid: 1 box/cupboard per 150 workers; sick room at 300+ workers',
+      '§90 — Safety record book: more than 25 workers',
+      '§90A — Safety committee: 50+ workers in a factory',
+      '§91 — Washing facilities, separate for male/female workers',
+      '§92 — Canteen: more than 100 workers',
+      '§93 — Dining room: more than 25 workers',
+      '§94 — Children under 6: 40+ female workers',
+      '§99 — Group insurance: 100+ permanent workers'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['§89–94 Welfare Facilities', '8 min'],
+      ['§99 Group Insurance', '2 min'],
+      ['Conclusion', '1 min']
+    ]
+  },
+
+  {
+    id: 'suspension',
+    tab: 'Ch II · §24',
+    group: 1,
+    title: 'Suspension Procedure',
+
+    body: `
+      <p>Section 24 of the Bangladesh Labour Act, 2006 establishes the procedure for punishment of a worker for misconduct and provides rules for suspension pending enquiry.</p>
+
+      <h4>Procedure Before Punishment (§24)</h4>
+      <ol>
+        <li>
+          <b>Written Allegation:</b>
+          The allegation against the worker must be recorded in writing.
+        </li>
+
+        <li>
+          <b>Opportunity to Explain:</b>
+          The worker must receive a copy of the allegation and be given at least <b>7 days</b> to explain.
+        </li>
+
+        <li>
+          <b>Opportunity of Hearing:</b>
+          The worker must be given an opportunity to be heard.
+        </li>
+
+        <li>
+          <b>Enquiry Committee:</b>
+          The worker must be found guilty after an enquiry by a committee consisting of an <b>equal number of employer and worker representatives</b>.
+        </li>
+
+        <li>
+          <b>Time Limit:</b>
+          The enquiry must normally be completed within <b>60 days</b>.
+        </li>
+
+        <li>
+          <b>Approval of Dismissal:</b>
+          Where dismissal is ordered, the employer or manager must approve the order.
+        </li>
+      </ol>
+
+      <h4>Suspension Pending Enquiry</h4>
+      <ol>
+        <li>A worker charged with misconduct may be suspended while the enquiry is pending.</li>
+        <li>Unless the matter is pending before a court, suspension cannot exceed <b>60 days</b>.</li>
+        <li>The suspension order must be <b>in writing</b> and takes effect immediately upon delivery.</li>
+        <li>During suspension, the worker receives a <b>subsistence allowance</b> and all other allowances in full.</li>
+        <li>The accused worker may be assisted by a person employed in the establishment and nominated by him.</li>
+        <li>If oral evidence is given, the worker against whom it is given has the right to cross-examine the witness.</li>
+      </ol>
+
+      <h4>Result of Enquiry</h4>
+      <ul>
+        <li>
+          <b>If Guilty:</b> If punished under section 23(1), the worker is not entitled to wages for the suspension period but remains entitled to the subsistence allowance.
+        </li>
+
+        <li>
+          <b>If Not Guilty:</b> The worker is deemed to have been on duty during the suspension period and receives wages for that period, after adjustment of the subsistence allowance already paid.
+        </li>
+      </ul>
+
+      <h4>Conclusion</h4>
+      <p>Section 24 provides a structured disciplinary procedure while ensuring that a worker receives notice, an opportunity to explain and be heard, and a fair enquiry.</p>
+    `,
+
+    mem: [
+      '§24 — Written allegation',
+      'At least 7 days to explain',
+      'Right to be heard',
+      'Equal employer-worker enquiry committee',
+      'Enquiry normally completed within 60 days',
+      'Suspension normally max 60 days pending enquiry',
+      'Subsistence allowance + other allowances in full',
+      'Guilty → no wages for suspension period, but subsistence allowance',
+      'Not guilty → deemed on duty + wages after adjustment'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['Procedure Before Punishment', '5 min'],
+      ['Suspension Rules', '4 min'],
+      ['Enquiry Outcome + Conclusion', '2 min']
+    ]
+  },
+
+  {
+    id: 'working-hours',
+    tab: 'Ch IX · §100–109',
+    group: 2,
+    title: 'Regulation of Working Hours',
+
+    body: `
+      <p>Chapter IX of the Bangladesh Labour Act, 2006 regulates daily and weekly working hours, rest periods, weekly holidays, overtime, spread-over, and night work of women.</p>
+
+      <h4>Core Provisions</h4>
+      <ol>
+        <li>
+          <b>Daily Working Hours (§100):</b>
+          An adult worker ordinarily cannot work more than <b>8 hours a day</b>. Subject to the overtime provisions, a worker may work up to <b>10 hours in a day</b>.
+        </li>
+
+        <li>
+          <b>Rest or Meal Intervals (§101):</b>
+          A worker cannot work for more than <b>6 hours</b> without a 1-hour interval, more than <b>5 hours</b> without a half-hour interval, or more than <b>8 hours</b> without either one 1-hour interval or two half-hour intervals.
+        </li>
+
+        <li>
+          <b>Weekly Working Hours (§102):</b>
+          An adult worker ordinarily cannot work more than <b>48 hours per week</b>. Subject to the Act, total working hours may reach <b>60 hours per week</b>, with an annual average of <b>56 hours per week</b>.
+        </li>
+
+        <li>
+          <b>Weekly Holiday (§103):</b>
+          Workers are entitled to weekly holidays according to the type of establishment: generally <b>1.5 days</b> for shops/commercial/industrial establishments and <b>1 day</b> for factories and establishments, subject to the specific statutory provisions.
+        </li>
+
+        <li>
+          <b>Spread-over (§105):</b>
+          The period of work of an adult worker, excluding the rest or meal interval under §101, should not spread over more than <b>10 hours</b>, subject to permitted government exceptions.
+        </li>
+
+        <li>
+          <b>Overtime (§108):</b>
+          Where a worker works more than the hours fixed under the Act, overtime allowance is payable at <b>twice the ordinary rate of basic wage and dearness allowance and ad-hoc/interim wage, if any</b>.
+        </li>
+
+        <li>
+          <b>Night Work for Women (§109):</b>
+          A woman worker cannot, without her consent, be allowed to work between <b>10:00 PM and 6:00 AM</b>.
+        </li>
+      </ol>
+
+      <h4>Conclusion</h4>
+      <p>Working-hour regulations establish legal limits on working time and provide protections relating to rest, weekly holidays, overtime, and night work.</p>
+    `,
+
+    mem: [
+      '§100 — 8 hrs/day ordinarily; up to 10 hrs with overtime',
+      '§101 — Rest: 1 hr after 6 hrs; 30 min after 5 hrs; special rule after 8 hrs',
+      '§102 — 48 hrs/week ordinarily; max 60 hrs/week; annual average 56 hrs',
+      '§103 — Weekly holiday according to establishment type',
+      '§105 — Spread-over normally not more than 10 hrs',
+      '§108 — Overtime = twice ordinary basic wage + DA/ad-hoc/interim wage',
+      '§109 — Women: 10 PM–6 AM requires consent'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['Daily & Rest Hours', '4 min'],
+      ['Weekly Hours & Holidays', '4 min'],
+      ['Overtime & Women Protection', '2 min'],
+      ['Conclusion', '1 min']
+    ]
+  },
+
+  {
+    id: 'leave-proc',
+    tab: 'Ch II · §10–11',
+    group: 2,
+    title: 'Procedure of Applying for Leave',
+
+    body: `
+      <p>Section 10 of the Bangladesh Labour Act, 2006 establishes the statutory procedure for applying for and obtaining leave.</p>
+
+      <h4>Procedure Flow</h4>
+      <ol>
+        <li>
+          <b>Written Application:</b>
+          A worker who wants leave must apply to the employer <b>in writing</b> and state his or her <b>address during the leave</b>.
+        </li>
+
+        <li>
+          <b>Employer's Order:</b>
+          The employer or authorized officer must issue an order within <b>7 days</b> of receiving the application or <b>2 days before the commencement of leave</b>, whichever is earlier.
+        </li>
+
+        <li>
+          <b>Urgent Leave:</b>
+          If the leave is to begin on the date of application or within <b>3 days</b>, the order must be given on the day the application is received.
+        </li>
+
+        <li>
+          <b>Leave Pass:</b>
+          If the leave is granted, a formal <b>leave pass</b> must be issued.
+        </li>
+
+        <li>
+          <b>Refusal or Postponement:</b>
+          If leave is refused or postponed, the fact and reasons must be communicated to the worker before the expected commencement date and recorded in the relevant register.
+        </li>
+
+        <li>
+          <b>Extension:</b>
+          A worker who wants to extend leave must apply in writing by registered post before the reasonable time of expiry, and the employer must send a written reply to the worker's leave address.
+        </li>
+      </ol>
+
+      <h4>Payment for Unavailed Leave (§11)</h4>
+      <p>If employment terminates and annual leave remains due, the employer must pay wages in lieu of the unavailed leave.</p>
+
+      <h4>Conclusion</h4>
+      <p>Section 10 creates a formal process for applying for leave, receiving a decision, obtaining a leave pass, and dealing with refusal, postponement, or extension.</p>
+    `,
+
+    mem: [
+      '§10 — Written leave application + address during leave',
+      'Employer order: within 7 days OR 2 days before leave, whichever is earlier',
+      'Urgent leave → same-day order',
+      'Granted leave → leave pass',
+      'Refusal/postponement + reasons → communicated and recorded',
+      'Extension → written application by registered post',
+      '§11 — Wages in lieu of unavailed annual leave on termination'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['Application & Employer Decision', '5 min'],
+      ['Urgent Leave, Refusal & Extension', '4 min'],
+      ['§11 + Conclusion', '2 min']
+    ]
+  },
+
+  {
+    id: 'leave-holidays',
+    tab: 'Ch IX · §103, §115–119',
+    group: 3,
+    title: 'Leave and Holidays of Worker',
+
+    body: `
+      <p>The Bangladesh Labour Act provides statutory leave and holiday entitlements for workers, including weekly holidays, casual leave, sick leave, annual earned leave, and festival holidays.</p>
+
+      <h4>Statutory Leave and Holiday Entitlements</h4>
+      <ul>
+        <li>
+          <b>Weekly Holiday (§103):</b>
+          Workers receive weekly holidays according to the type of establishment. Generally, workers in shops, commercial and industrial establishments receive <b>1.5 days</b> per week, while workers in factories and establishments receive <b>1 day</b> per week. No deduction shall be made from wages for these holidays.
+        </li>
+
+        <li>
+          <b>Casual Leave (§115):</b>
+          Workers are entitled to <b>10 days of casual leave with full wages</b> in a calendar year. Such leave cannot be accumulated or carried forward.
+        </li>
+
+        <li>
+          <b>Sick Leave (§116):</b>
+          Workers are entitled to <b>14 days of sick leave with full wages</b> in a calendar year, subject to the statutory requirements including medical certification. Such leave cannot be accumulated.
+        </li>
+
+        <li>
+          <b>Annual Earned Leave (§117):</b>
+          An adult worker who has completed <b>1 year of continuous service</b> receives annual leave with wages calculated at <b>1 day for every 18 days of work</b> in a factory, shop, commercial/industrial establishment, or road transport establishment. Different rates apply to tea plantations and newspaper workers and to adolescent workers.
+        </li>
+
+        <li>
+          <b>Festival Holidays (§118):</b>
+          Every worker is entitled to <b>11 festival holidays with wages</b> in a calendar year. If a worker is required to work on a festival holiday, the worker must receive <b>one substitute holiday and two days' compensatory wages</b>.
+        </li>
+      </ul>
+
+      <h4>Conclusion</h4>
+      <p>Statutory leave and holiday provisions protect workers' entitlement to rest, personal time, sickness-related absence, annual leave, and festival holidays.</p>
+    `,
+
+    mem: [
+      '§103 — Weekly holiday according to establishment type',
+      '§115 — Casual leave: 10 days with full wages, non-cumulative',
+      '§116 — Sick leave: 14 days with full wages, subject to statutory requirements',
+      '§117 — Adult earned leave: 1 day per 18 days of work in factory/shop/commercial/industrial/road transport establishments',
+      '§118 — Festival holidays: 11 days with wages',
+      'Festival holiday worked → 1 substitute holiday + 2 days compensatory wages'
+    ],
+
+    plan: [
+      ['Introduction + Weekly Holiday', '2 min'],
+      ['Casual & Sick Leave', '4 min'],
+      ['Annual Earned Leave', '3 min'],
+      ['Festival Holidays + Conclusion', '3 min']
+    ]
+  },
+
+  {
+    id: 'illegal-strike',
+    tab: 'Ch XIV · §227',
+    group: 3,
+    title: 'When a Strike or Lockout is Illegal',
+
+    body: `
+      <p>Section 227 of the Bangladesh Labour Act, 2006 specifies when a strike or lock-out is considered illegal because statutory dispute-resolution and notice requirements have not been followed.</p>
+
+      <h4>Grounds Rendering a Strike or Lockout Illegal (§227)</h4>
+      <ol>
+        <li>
+          <b>Improper Notice or Timing:</b>
+          The strike or lock-out is declared, commenced, or continued without giving the other party the required notice, before or after the date specified in the notice, or in contravention of §225.
+        </li>
+
+        <li>
+          <b>Improperly Raised Industrial Dispute:</b>
+          The strike or lock-out is declared, commenced, or continued as a result of an industrial dispute raised in a manner other than that provided under <b>§209</b>.
+        </li>
+
+        <li>
+          <b>Violation of Prohibition Order:</b>
+          The strike or lock-out is continued in contravention of an order made under <b>§211 or §226</b>.
+        </li>
+
+        <li>
+          <b>Existing Settlement or Award:</b>
+          The strike or lock-out is declared, commenced, or continued while a settlement or award concerning the matter is in operation.
+        </li>
+      </ol>
+
+      <h4>Statutory Exception (§227(2))</h4>
+      <p>A lock-out declared in consequence of an illegal strike, and a strike declared in consequence of an illegal lock-out, shall not be deemed to be illegal.</p>
+
+      <h4>Penal Provisions (§294)</h4>
+      <p>A worker who commences, continues, or acts in furtherance of an illegal strike may face imprisonment for up to <b>6 months</b>, a fine up to <b>Tk. 5,000</b>, or both. An employer committing an illegal lock-out faces the same maximum penalty.</p>
+
+      <h4>Conclusion</h4>
+      <p>A strike or lock-out becomes illegal when statutory notice, dispute-resolution, prohibition-order, or settlement/award requirements are violated.</p>
+    `,
+
+    mem: [
+      '§227 — 4 main grounds of illegality',
+      'Ground 1 — Improper/no notice, wrong timing, or §225 violation',
+      'Ground 2 — Dispute not raised under §209',
+      'Ground 3 — Violation of §211 or §226 order',
+      'Ground 4 — Settlement or award already in operation',
+      '§227(2) — Illegal strike ↔ responsive lock-out exception',
+      '§294 — Up to 6 months imprisonment / Tk. 5,000 fine / both'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['4 Grounds under §227', '7 min'],
+      ['Exception + §294 Penalty', '3 min'],
+      ['Conclusion', '1 min']
+    ]
+  },
+
+  {
+    id: 'pf',
+    tab: 'Ch XVII · §264',
+    group: 4,
+    title: 'Provident Fund (PF) Explanation',
+
+    body: `
+      <p><b>Question:</b> <i>Under Bangladesh labour regulations, a provident fund (PF) is a retirement savings plan where employers and permanent employees make monthly contributions. Explain it.</i></p>
+
+      <h4>Definition & Statutory Foundation</h4>
+      <p>Under Chapter XVII, §264 of the Bangladesh Labour Act, 2006, a private-sector establishment may constitute a provident fund for the benefit of its workers. The fund is governed through a statutory framework concerning trustees, worker and employer contributions, investment, and administration.</p>
+
+      <h4>Key Statutory Framework (§264)</h4>
+      <ol>
+        <li>
+          <b>Establishment of PF:</b>
+          A private-sector establishment may constitute a provident fund for its workers. Where the Government makes applicable rules for such establishments, the concerned establishment must comply with those rules.
+        </li>
+
+        <li>
+          <b>Mandatory Constitution on Workers' Demand:</b>
+          A private-sector establishment must constitute a provident fund if at least <b>three-fourths (75%) of the total workers</b> demand it from the employer by written application. The employer must make the necessary provisions and the fund must start operating within <b>6 months</b> of receiving the application.
+        </li>
+
+        <li>
+          <b>Board of Trustees:</b>
+          The PF is administered by a <b>Board of Trustees</b> consisting of an equal number of employer and worker representatives. A person nominated by the Government serves as chairman.
+        </li>
+
+        <li>
+          <b>Worker Contribution:</b>
+          Every permanent worker, after completing <b>1 year of service</b> in an establishment where the PF is constituted, subscribes monthly, unless otherwise agreed, at a rate of <b>not less than 7% and not more than 8% of monthly basic wages</b>.
+        </li>
+
+        <li>
+          <b>Employer Contribution:</b>
+          The employer contributes an <b>equal amount</b> to the worker's contribution.
+        </li>
+
+        <li>
+          <b>Investment:</b>
+          At least <b>50%</b> of the total accumulations must be invested in specified safe instruments, including ICB Mutual Fund Certificates, ICB Unit Certificates, and Government securities including defence and postal savings certificates.
+        </li>
+
+        <li>
+          <b>Maintenance Cost:</b>
+          The cost of maintaining the provident fund is borne by the employer.
+        </li>
+      </ol>
+
+      <h4>Protection of PF Benefits</h4>
+      <ul>
+        <li>
+          <b>§29:</b> A worker who is a member of a provident fund and entitled to benefits from it, including the employer's contribution, shall not be deprived of those benefits because of retrenchment, discharge, dismissal, retirement, removal, termination of service, or death.
+        </li>
+
+        <li>
+          <b>§270:</b> The amount standing to the worker's PF credit is not liable to attachment under a court decree or order for debts or liabilities incurred by the worker.
+        </li>
+      </ul>
+
+      <h4>Conclusion</h4>
+      <p>A provident fund provides long-term financial protection through regular contributions by permanent workers and matching employer contributions, with statutory rules governing its administration and protection.</p>
+    `,
+
+    mem: [
+      '§264 — Provident fund for private-sector establishments',
+      '75% worker demand in writing → PF must be constituted',
+      'PF must start operating within 6 months of the demand',
+      'Board of Trustees → equal employer and worker representation + Government-nominated chairman',
+      'Permanent worker + 1 year service → monthly subscription',
+      'Worker contribution = 7%–8% of basic wages',
+      'Employer contributes an equal amount',
+      'At least 50% of accumulations → specified investments',
+      '§29 — PF benefits protected from deprivation due to termination-related events',
+      '§270 — PF balance protected from court attachment for worker debts'
+    ],
+
+    plan: [
+      ['Definition & Scope', '1 min'],
+      ['Demand & Trustees', '3 min'],
+      ['Contribution Rules', '3 min'],
+      ['Investment & Protection', '4 min'],
+      ['Conclusion', '1 min']
+    ]
+  },
+
+  {
+    id: 'maternity',
+    tab: 'Ch IV · §45–50',
+    group: 4,
+    title: 'Maternity Benefit & Employment of Women',
+
+    body: `
+      <p>Chapter IV of the Bangladesh Labour Act, 2006 provides maternity benefits and protections for women workers in connection with childbirth.</p>
+
+      <h4>Employment Restrictions (§45)</h4>
+      <ul>
+        <li>An employer shall not knowingly employ a woman in an establishment during the <b>8 weeks immediately following the day of her delivery</b>.</li>
+        <li>A woman cannot be employed during the prescribed period before and after delivery in work that is of an arduous nature, involves long hours of standing, or is otherwise likely to adversely affect her health, subject to the statutory conditions.</li>
+      </ul>
+
+      <h4>Entitlement & Eligibility (§46)</h4>
+      <ul>
+        <li>A female worker is entitled to <b>16 weeks of maternity benefit</b>, consisting of <b>8 weeks before delivery and 8 weeks after delivery</b>, subject to the Act.</li>
+        <li>The worker must have completed at least <b>6 months of continuous service</b> immediately preceding the day of delivery to qualify under the relevant provision.</li>
+        <li>The statutory maternity benefit is subject to the Act's limitation concerning the number of surviving children.</li>
+      </ul>
+
+      <h4>Amount of Maternity Benefit (§48)</h4>
+      <ul>
+        <li>The maternity benefit is paid wholly in cash.</li>
+        <li>The daily, weekly, or monthly average wage is calculated based on the woman's wages during the <b>3 months immediately preceding the date of notice</b>, divided by the number of days she actually worked during that period.</li>
+      </ul>
+
+      <h4>Protection Relating to Termination (§50)</h4>
+      <ul>
+        <li>If an employer gives a notice or order of discharge, dismissal, removal, or otherwise terminates the employment of a woman worker within <b>6 months before or 8 weeks after delivery</b> without sufficient cause, she shall <b>not be deprived of the maternity benefit</b> to which she would otherwise have been entitled.</li>
+        <li><b>Important:</b> Section 50 should not be stated as saying that every such termination is automatically "void." The statutory protection specifically preserves the worker's maternity benefit where the termination is without sufficient cause.</li>
+      </ul>
+
+      <h4>Conclusion</h4>
+      <p>Maternity provisions provide paid maternity benefit, regulate employment around childbirth, and protect a woman's entitlement to maternity benefits when termination occurs without sufficient cause during the protected period.</p>
+    `,
+
+    mem: [
+      '§45 — No employment during the 8 weeks immediately following delivery',
+      '§46 — 16 weeks maternity benefit: 8 weeks before + 8 weeks after delivery',
+      'Eligibility includes 6 months of continuous service',
+      'Statutory limitation applies concerning surviving children',
+      '§48 — Benefit paid wholly in cash based on average wages from the preceding 3 months',
+      '§50 — Without sufficient cause, termination within 6 months before or 8 weeks after delivery cannot deprive the worker of maternity benefit'
+    ],
+
+    plan: [
+      ['Introduction', '1 min'],
+      ['§45 Employment Restrictions', '3 min'],
+      ['§46 Entitlement & Eligibility', '4 min'],
+      ['§48 Amount + §50 Protection', '4 min'],
+      ['Conclusion', '1 min']
+    ]
+  }
+];
+
+
+const flashcards = [
+  {
+    term: 'Service (Continuous Service)',
+    def: '<b>Statutory Ref:</b> Section 14 BLA 2006.<br><b>Key Points:</b><br>• For the purposes of Chapter II, a worker who has actually worked at least <b>240 days</b> in the preceding 12 calendar months is deemed to have completed <b>1 year</b> of continuous service.<br>• At least <b>120 days</b> counts as 6 months of continuous service for the purposes of the Chapter.<br>• Certain days such as lay-off, sickness/accident leave, legal strike or illegal lock-out, and maternity leave up to 16 weeks are also counted according to §14.'
+  },
+
+  {
+    term: 'Adolescent',
+    def: '<b>Statutory Ref:</b> Section 2(8) BLA 2006.<br><b>Key Points:</b><br>• An adolescent is a person who has completed the <b>14th year</b> but has not completed the <b>18th year</b> of age.<br>• An adolescent generally requires a <b>certificate of fitness</b> from a registered medical practitioner, subject to the statutory exceptions.<br>• In a factory or mine, maximum ordinary working time is <b>5 hours/day and 30 hours/week</b>.<br>• In other establishments, maximum ordinary working time is <b>7 hours/day and 42 hours/week</b>.<br>• No adolescent may work between <b>7:00 PM and 7:00 AM</b>.'
+  },
+
+  {
+    term: 'Lockout vs Closure',
+    def: '<b>Lock-out (§2(57)):</b> Closing a place of work or part of it, suspending work wholly or partly, or refusing to continue allowing workers to work, where the closing, suspension, or refusal occurs in connection with an industrial dispute or is intended to compel workers.<br><br><b>Closure (§13):</b> An employer may close wholly or partly a section or establishment in the event of an <b>illegal strike</b> in that section or department, subject to the statutory provisions.<br><br><b>Difference:</b> A lock-out is an employer action connected with an industrial dispute; the specific statutory closure under §13 occurs in response to an illegal strike.'
+  },
+
+  {
+    term: 'Arbitrator',
+    def: '<b>Statutory Ref:</b> Section 2(46) & Chapter XIV BLA 2006.<br><b>Key Points:</b><br>• An Arbitrator is an Arbitrator appointed under Chapter XIV.<br>• When conciliation fails, the parties may agree in writing to refer the dispute to an Arbitrator.<br>• The Arbitrator may be selected from the Government panel or may be another person agreed upon by the parties.<br>• The Arbitrator gives an <b>award</b>.<br>• The award is <b>final and no appeal lies against it</b>.'
+  },
+
+  {
+    term: 'Stoppage',
+    def: `<b>Statutory Ref:</b> Section 12 BLA 2006.<br><b>Key Points:</b><br>• An employer may stop work wholly or partly because of events such as <b>fire, sudden catastrophe, machinery breakdown, power-supply stoppage, epidemics, widespread riots, or another cause beyond the employer's control</b>.<br>• If the stoppage continues for more than <b>1 working day</b>, concerned non-casual/non-substitute workers are entitled to wages for stopped working days exceeding 1 day, subject to the Act.<br>• If the stoppage exceeds <b>3 working days</b>, the concerned workers shall be laid off according to §16.<br>• This is distinct from the statutory <b>closure under §13</b>, which concerns closure in response to an illegal strike.`
+  }
+];
 // ---------- render ----------
 const groupTargets = {1:'grp-1',2:'grp-2',3:'grp-3',4:'grp-4'};
 const reviewed = new Set();
