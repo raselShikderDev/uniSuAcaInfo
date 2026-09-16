@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BA 3204 MIS Exam Prep : Chapters 1 &amp; 2</title>
+<style>
+  :root{
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --ink:#1c2530;
+    --muted:#5a6473;
+    --line:#dde3ea;
+    --accent:#1c5cff;
+    --accent2:#0e9f6e;
+    --warn:#b8860b;
+    --chip:#eef2ff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  header.top{
+    background:var(--ink);
+    color:#fff;
+    padding:18px 16px;
+    text-align:center;
+  }
+  header.top h1{margin:0 0 4px 0; font-size:1.3rem;}
+  header.top p{margin:0; color:#c8d1de; font-size:0.9rem;}
+  nav.tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:10px;
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  nav.tabs button{
+    flex:1 1 auto;
+    min-width:90px;
+    padding:8px 6px;
+    font-size:0.8rem;
+    border:1px solid var(--line);
+    background:#fafbfc;
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  nav.tabs button.active{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
+  }
+  main{
+    max-width:900px;
+    margin:0 auto;
+    padding:14px;
+  }
+  section.page{display:none;}
+  section.page.active{display:block;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:14px;
+  }
+  h2{font-size:1.15rem; margin-top:0; border-bottom:2px solid var(--accent); padding-bottom:6px;}
+  h3{font-size:1.02rem; color:var(--accent); margin-bottom:6px;}
+  h4{margin-bottom:4px; font-size:0.95rem;}
+  .kw{
+    background:var(--chip);
+    color:var(--accent);
+    padding:1px 6px;
+    border-radius:5px;
+    font-weight:600;
+    font-size:0.9em;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0;
+    font-size:0.88rem;
+  }
+  th, td{
+    border:1px solid var(--line);
+    padding:6px 8px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:var(--ink); color:#fff;}
+  tr:nth-child(even) td{background:#fafbfc;}
+  .diagram{
+    background:#0f172a;
+    color:#e2f0ff;
+    font-family:"Courier New", monospace;
+    font-size:0.78rem;
+    padding:12px;
+    border-radius:8px;
+    overflow-x:auto;
+    white-space:pre;
+    line-height:1.4;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+    gap:10px;
+    margin:10px 0;
+  }
+  .mini{
+    background:#fafbfc;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .mini strong{display:block; font-size:1rem; color:var(--accent);}
+  .mini span{font-size:0.78rem; color:var(--muted);}
+  .memorize{
+    background:#fff7e6;
+    border:1px solid #f0d896;
+    border-radius:8px;
+    padding:10px 14px;
+    margin:10px 0;
+  }
+  .memorize h4{color:var(--warn); margin-top:0;}
+  .structure{
+    background:#eefaf3;
+    border:1px solid #bfe9d0;
+    border-radius:8px;
+    padding:10px 14px;
+    margin:10px 0;
+  }
+  .simple{
+    background:#eef4ff;
+    border:1px solid #c8d9fb;
+    border-radius:8px;
+    padding:10px 14px;
+    margin:10px 0;
+  }
+  .keywords span{
+    display:inline-block;
+    background:var(--chip);
+    color:var(--accent);
+    border-radius:12px;
+    padding:2px 10px;
+    margin:2px 4px 2px 0;
+    font-size:0.8rem;
+  }
+  details{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 12px;
+    margin-bottom:8px;
+    background:#fafbfc;
+  }
+  summary{cursor:pointer; font-weight:600;}
+  .plan-step{
+    display:flex;
+    gap:10px;
+    padding:8px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .plan-time{
+    min-width:70px;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .badge{
+    display:inline-block;
+    background:var(--accent2);
+    color:#fff;
+    border-radius:6px;
+    padding:1px 8px;
+    font-size:0.75rem;
+    margin-left:6px;
+  }
+  ul, ol{padding-left:20px;}
+  .backtop{
+    display:inline-block;
+    margin-top:8px;
+    font-size:0.8rem;
+    color:var(--accent);
+    cursor:pointer;
+    text-decoration:underline;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.75rem;
+    padding:20px 10px 40px;
+  }
+
+  @media print{
+    nav.tabs{display:none;}
+    section.page{display:block !important; break-after:page;}
+    body{background:#fff;}
+    .card{border:none; box-shadow:none; page-break-inside:avoid;}
+    .diagram{background:#fff; color:#000; border:1px solid #000;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>BA 3204 : Fundamentals of MIS</h1>
+  <p>Chapter 1 &amp; 2 Exam Prep — 6 Questions — 2-Hour Sprint Plan</p>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-page="dashboard" class="active">Dashboard</button>
+  <button data-page="q1">Q1</button>
+  <button data-page="q2">Q2</button>
+  <button data-page="q3">Q3</button>
+  <button data-page="q4">Q4</button>
+  <button data-page="q5">Q5</button>
+  <button data-page="q6">Q6</button>
+  <button data-page="tables">Tables</button>
+  <button data-page="diagrams">Diagrams</button>
+  <button data-page="memorize">Must Memorize</button>
+  <button data-page="last10">Last 10 Min</button>
+  <button data-page="selftest">Self-Test</button>
+</nav>
+
+<main>
+
+<!-- DASHBOARD -->
+<section class="page active" id="dashboard">
+  <div class="card">
+    <h2>Dashboard</h2>
+    <p>You have about <span class="kw">2 hours</span> before the test. This guide covers <span class="kw">Chapter 1</span> and <span class="kw">Chapter 2</span> with <span class="kw">6 exam questions</span> (note: the original 7-item list contained a numbering overlap, so there are 6 unique questions, 3 per chapter).</p>
+
+    <div class="grid">
+      <div class="mini" onclick="showPage('q1')"><strong>Q1</strong><span>IS transforming business</span></div>
+      <div class="mini" onclick="showPage('q2')"><strong>Q2</strong><span>What is an IS?</span></div>
+      <div class="mini" onclick="showPage('q3')"><strong>Q3</strong><span>Academic disciplines</span></div>
+      <div class="mini" onclick="showPage('q4')"><strong>Q4</strong><span>Business processes</span></div>
+      <div class="mini" onclick="showPage('q5')"><strong>Q5</strong><span>Management levels &amp; systems</span></div>
+      <div class="mini" onclick="showPage('q6')"><strong>Q6</strong><span>Role of the IS function</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2-Hour Preparation Plan</h3>
+    <div class="plan-step"><div class="plan-time">0:00–0:20</div><div>Read Q1, Q2, Q3 (Chapter 1) once each. Do not memorize yet, just understand the flow.</div></div>
+    <div class="plan-step"><div class="plan-time">0:20–0:40</div><div>Read Q4, Q5, Q6 (Chapter 2) once each.</div></div>
+    <div class="plan-step"><div class="plan-time">0:40–1:10</div><div>Go through the <span class="kw">Comparison Tables</span> and <span class="kw">Diagrams</span> tab. These are the fastest marks in an exam.</div></div>
+    <div class="plan-step"><div class="plan-time">1:10–1:40</div><div>Memorize the <span class="kw">Must Memorize</span> section (definitions, the 6 objectives, TPS/MIS/DSS/ESS, ERP/SCM/CRM/KMS).</div></div>
+    <div class="plan-step"><div class="plan-time">1:40–1:55</div><div>Do the <span class="kw">Self-Test</span> without looking. Reveal answers only after attempting.</div></div>
+    <div class="plan-step"><div class="plan-time">1:55–2:00</div><div>Read the <span class="kw">Last 10 Minutes Before Exam</span> page.</div></div>
+  </div>
+
+  <div class="card">
+    <h3>How to use each question page</h3>
+    <p>Every question page has: the question, a university-ready answer (approx. 250–400 words), key points, a simple-language explanation, a 10-minute exam writing structure, and keywords to drop into your answer for marks.</p>
+  </div>
+</section>
+
+<!-- Q1 -->
+<section class="page" id="q1">
+  <div class="card">
+    <h2>Q1 (Chapter 1). How are information systems transforming business, and why are they essential for running and managing a business today?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>Information systems (IS) have become essential to modern business because they support nearly every function of an organization, from communication to decision making. <span class="kw">Information Technology (IT)</span> refers to the hardware and software needed to achieve business objectives, including computers, storage devices, mobile devices, operating systems, applications, databases, networks, the Internet, intranets, and cloud computing. IT supports communication, automation, decision making, and business processes across the firm.</p>
+    <p>An <span class="kw">Information System</span> goes further than IT alone. It is a set of interrelated components that collect, process, store, and distribute information to support decision making, coordination, control, analysis, and visualization. IS combines IT with people and business processes, meaning technology alone does not create value; it must be integrated with how people work and how the organization is structured.</p>
+    <p><span class="kw">MIS (Management Information Systems)</span> specifically is a computer-based system that collects, processes, stores, and distributes information so managers receive the right information, at the right time, in the right form, to support their decisions.</p>
+    <p>IS transform business by helping firms achieve six strategic business objectives: <span class="kw">operational excellence</span> (efficiency and productivity), <span class="kw">new products, services, and business models</span>, <span class="kw">customer and supplier intimacy</span>, <span class="kw">improved decision making</span>, <span class="kw">competitive advantage</span>, and <span class="kw">survival</span> (meeting basic technological and legal requirements to keep operating).</p>
+    <p>Because business today depends on accurate and timely information for coordination, control, and strategy, and because competitors use IS to gain advantage, a firm without effective information systems risks inefficiency, poor decisions, and even failure to survive in its industry. This is why IS is no longer optional; it is a core requirement of running and managing a business.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>IT = hardware/software; IS = IT + people + business processes.</li>
+        <li>MIS = computer-based system delivering the right info, right time, right form.</li>
+        <li>6 strategic business objectives (memorize the list).</li>
+        <li>"Survival" objective = meeting basic legal/technological requirements.</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>Think of IT as the tools (computers, apps, networks). An information system is those tools PLUS the people using them PLUS the way work gets done. Businesses need this because good, fast information helps managers make better decisions, beat competitors, and just keep the business legally and technically running.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(1 min)</strong> Define IT briefly.</li>
+        <li><strong>(2 min)</strong> Define Information System and MIS, show the difference from IT.</li>
+        <li><strong>(4 min)</strong> List and briefly explain the 6 strategic business objectives.</li>
+        <li><strong>(2 min)</strong> Explain why this makes IS essential (competition, coordination, survival).</li>
+        <li><strong>(1 min)</strong> Short concluding sentence.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>Information Technology</span><span>Information System</span><span>MIS</span><span>operational excellence</span>
+      <span>new products/services/business models</span><span>customer and supplier intimacy</span>
+      <span>improved decision making</span><span>competitive advantage</span><span>survival</span>
+    </div>
+  </div>
+</section>
+
+<!-- Q2 -->
+<section class="page" id="q2">
+  <div class="card">
+    <h2>Q2 (Chapter 1). What is an information system? How does it work? What are its management, organization, and technology components?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>An <span class="kw">Information System (IS)</span> is a set of interrelated components that collect, process, store, and distribute information to support decision making, coordination, control, analysis, and visualization within an organization. It combines information technology with people and business processes; technology alone is not an information system.</p>
+    <p>An IS works through four basic functions. <span class="kw">Input</span> is the collection of raw data from within the organization or its environment. <span class="kw">Processing</span> converts this raw input into a more meaningful form by classifying, arranging, and calculating the data. <span class="kw">Output</span> transfers the processed information to the people who will use it, producing reports, summaries, charts, or documents. <span class="kw">Feedback</span> is output that is returned to appropriate members of the organization to help evaluate or correct the input stage, forming a continuous cycle.</p>
+    <p>Beyond the technical process, an IS has three essential dimensions. The <span class="kw">organization</span> dimension includes the people, organizational structure, business processes, politics, and culture that shape how the system is used. The <span class="kw">management</span> dimension involves decision making, problem solving, strategy, resource allocation, leadership, and coordination; managers decide how the system should be used to meet business goals. The <span class="kw">technology</span> dimension consists of the hardware, software, data management technology, and networking/telecommunications that make the system function.</p>
+    <p>These three dimensions must work together. A system may have excellent technology, but if the organizational processes or management decisions around it are poor, the system will fail to deliver value. This is why IS is described as a sociotechnical system: it depends equally on technology and on the social/organizational context in which it operates.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>4 IS functions in order: Input → Processing → Output → Feedback.</li>
+        <li>3 dimensions: Organization, Management, Technology.</li>
+        <li>IS = sociotechnical (technology + social/organizational factors).</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>An information system is like a machine that takes in raw data (input), turns it into something useful (processing), gives it to people who need it (output), and then checks itself using that output (feedback). But the "machine" only works well if the right people, structure, and management decisions surround it, that's the organization and management side, not just the tech.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(1.5 min)</strong> Define information system.</li>
+        <li><strong>(3 min)</strong> Explain how it works: Input, Processing, Output, Feedback (one sentence each).</li>
+        <li><strong>(4 min)</strong> Explain the 3 dimensions with one example detail for each.</li>
+        <li><strong>(1.5 min)</strong> Conclude: sociotechnical, all 3 dimensions must align.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>Input</span><span>Processing</span><span>Output</span><span>Feedback</span>
+      <span>Organization dimension</span><span>Management dimension</span><span>Technology dimension</span><span>sociotechnical</span>
+    </div>
+  </div>
+</section>
+
+<!-- Q3 -->
+<section class="page" id="q3">
+  <div class="card">
+    <h2>Q3 (Chapter 1). What academic disciplines are used to study information systems, and how does each contribute to an understanding of information systems?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>Because information systems are sociotechnical (combining technology with social and organizational factors), studying them requires both a <span class="kw">technical approach</span> and a <span class="kw">behavioral approach</span>. IS is therefore described as multidisciplinary.</p>
+    <p>The technical approach draws on three disciplines. <span class="kw">Computer Science</span> contributes theories of computability, computing methods, and efficient data storage and access, forming the technical foundation of systems. <span class="kw">Management Science</span> contributes the development of models for management decision making and business practice, helping managers apply systematic approaches to problems. <span class="kw">Operations Research</span> focuses on mathematical techniques for optimizing selected business activities, such as scheduling or resource allocation, to improve efficiency.</p>
+    <p>The behavioral approach also draws on three disciplines. <span class="kw">Sociology</span> studies how organizations and groups shape, and are shaped by, information systems, for example how systems affect organizational structure or group behavior. <span class="kw">Psychology</span> examines how individual people perceive and process information and how they make use of it, which helps explain user behavior and system adoption. <span class="kw">Economics</span> studies digital goods and digital markets, and how information systems affect firms' costs and structures of control within the organization.</p>
+    <p>No single discipline fully explains information systems on its own. The technical disciplines explain how systems are built and optimized, while the behavioral disciplines explain how people and organizations actually use, resist, or adapt to those systems. Combining both approaches gives a complete picture, which is why the field of IS is considered multidisciplinary and sociotechnical rather than purely a branch of computer science.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>Technical approach: Computer Science, Management Science, Operations Research.</li>
+        <li>Behavioral approach: Sociology, Psychology, Economics.</li>
+        <li>IS = multidisciplinary and sociotechnical.</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>Some subjects explain the "tech" side (how to build and optimize computer systems): computer science, management science, operations research. Other subjects explain the "people" side (how humans and organizations react to and use systems): sociology, psychology, economics. You need both to fully understand information systems.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(1 min)</strong> State IS is multidisciplinary/sociotechnical.</li>
+        <li><strong>(4 min)</strong> Technical approach: name and explain all 3 disciplines.</li>
+        <li><strong>(4 min)</strong> Behavioral approach: name and explain all 3 disciplines.</li>
+        <li><strong>(1 min)</strong> Conclude why both are needed.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>technical approach</span><span>behavioral approach</span><span>Computer Science</span>
+      <span>Management Science</span><span>Operations Research</span><span>Sociology</span><span>Psychology</span><span>Economics</span>
+      <span>multidisciplinary</span><span>sociotechnical</span>
+    </div>
+  </div>
+</section>
+
+<!-- Q4 -->
+<section class="page" id="q4">
+  <div class="card">
+    <h2>Q4 (Chapter 2). What are business processes? How are they related to information systems?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>A <span class="kw">business process</span> is the manner in which work is organized, coordinated, and focused to produce a valuable product or service. It is a collection of activities that are supported by flows of material, information, and knowledge among the participants involved. Business processes describe the specific, repeatable ways an organization gets work done, such as fulfilling an order or hiring an employee.</p>
+    <p>Information systems are closely tied to business processes because IS can improve how these processes are carried out. Information systems make work faster, easier, and more efficient by automating manual tasks that were previously done by hand. They allow information to be shared quickly among people and departments who need it, and they allow multiple activities to be carried out simultaneously rather than one after another, which reduces delays.</p>
+    <p>Information systems also reduce delays in decision making by giving decision makers faster access to relevant information. Beyond simply speeding up existing processes, IS can enable the redesign of business processes altogether, and can even support entirely new business models that would not have been possible without the technology, for example fully digital services.</p>
+    <p>In this way, the relationship works in both directions: business processes shape what an information system needs to do (its requirements come from the process), while information systems shape how a business process can be performed (technology enables new, faster, or redesigned processes). Because of this close relationship, when organizations implement new information systems, they often must also redesign their business processes to fully realize the benefits, rather than simply automating an inefficient process as it already exists.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>Business process = how work is organized/coordinated/focused to create value.</li>
+        <li>Supported by flows of material, information, knowledge.</li>
+        <li>IS impact: faster, easier, more efficient; automation; information sharing; simultaneous activities; reduced decision delays; process redesign; new business models.</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>A business process is basically "how the work gets done" step by step, like how an order gets from customer to delivery. Information systems help these processes run faster and smarter, by automating steps, sharing info instantly, letting things happen at the same time instead of one-by-one, and sometimes letting a company invent a totally new way of doing business.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(2 min)</strong> Define business process.</li>
+        <li><strong>(1 min)</strong> Mention it is supported by flows of material/information/knowledge.</li>
+        <li><strong>(5 min)</strong> Explain how IS improve business processes (list all effects: automation, sharing, simultaneity, reduced delay, redesign, new models).</li>
+        <li><strong>(2 min)</strong> Conclude on the two-way relationship.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>business process</span><span>flows of material/information/knowledge</span>
+      <span>automate manual tasks</span><span>information sharing</span><span>simultaneous activities</span>
+      <span>decision delays</span><span>process redesign</span><span>new business models</span>
+    </div>
+  </div>
+</section>
+
+<!-- Q5 -->
+<section class="page" id="q5">
+  <div class="card">
+    <h2>Q5 (Chapter 2). How do systems serve the different management groups in a business, and how do systems that link the enterprise improve organizational performance?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>Businesses have three management levels, and different types of information systems are designed to serve each level. <span class="kw">Operational management</span> handles day-to-day activities and routine decisions, and is served by the <span class="kw">Transaction Processing System (TPS)</span>, which performs and records daily routine transactions such as sales orders, reservations, payroll, employee records, and shipping. For a TPS, information must be current, accurate, and available at all times.</p>
+    <p><span class="kw">Middle management</span> is responsible for monitoring, control, and short-to-medium-term decisions, and is served by the <span class="kw">Management Information System (MIS)</span>, which provides reports on current organizational performance using data drawn from the TPS. MIS usually answers predefined, routine questions rather than open-ended ones.</p>
+    <p>Middle and other managers facing non-routine problems are also served by the <span class="kw">Decision-Support System (DSS)</span>, which supports unique and rapidly changing problems where procedures are not fully predefined. A DSS uses internal data from TPS and MIS, and may also use external information, to support sophisticated analysis and modeling.</p>
+    <p><span class="kw">Senior management</span> makes strategic decisions and long-term plans, and is served by the <span class="kw">Executive Support System (ESS)</span>, which supports nonroutine strategic decisions requiring judgment, evaluation, and insight. ESS uses summarized internal and external information, often presented through dashboards and key performance indicators.</p>
+    <p>While TPS, MIS, DSS, and ESS serve individual management levels, <span class="kw">enterprise applications</span> span functional areas and management levels to integrate business processes across the whole organization, improving overall organizational performance. The four major enterprise applications are: <span class="kw">ERP/Enterprise Systems</span>, integrating manufacturing, finance/accounting, sales/marketing, and HR; <span class="kw">SCM</span>, managing supplier, purchasing, distributor, and logistics relationships and information flows; <span class="kw">CRM</span>, managing customer-related sales, marketing, and service processes; and <span class="kw">KMS</span>, which captures, manages, shares, and applies organizational knowledge and expertise. By linking data and processes across departments instead of keeping them isolated, these systems allow information to flow across the enterprise, improving coordination, efficiency, and decision making at every level.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>Operational → TPS; Middle → MIS &amp; DSS; Senior → ESS.</li>
+        <li>TPS = current, accurate, available data on routine transactions.</li>
+        <li>DSS = non-routine, rapidly changing problems, internal + external data.</li>
+        <li>ESS = strategic, judgment-based, dashboards/KPIs.</li>
+        <li>4 Enterprise apps: ERP, SCM, CRM, KMS.</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>Different levels of managers need different types of systems. Front-line/day-to-day staff use TPS (recording sales, payroll etc). Middle managers use MIS (routine performance reports) and DSS (help with tricky one-off problems). Top executives use ESS (big-picture dashboards for strategy). On top of these, enterprise systems (ERP, SCM, CRM, KMS) connect the whole company together so departments aren't working in isolated silos.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(1 min)</strong> Intro: 3 management levels need 3 (or 4) system types.</li>
+        <li><strong>(5 min)</strong> Go level by level: Operational–TPS, Middle–MIS/DSS, Senior–ESS. One definition + one distinguishing feature each.</li>
+        <li><strong>(3 min)</strong> Enterprise applications: define, then name and briefly explain ERP, SCM, CRM, KMS.</li>
+        <li><strong>(1 min)</strong> Conclude: enterprise apps link the whole firm, improving performance.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>Operational management</span><span>Middle management</span><span>Senior management</span>
+      <span>TPS</span><span>MIS</span><span>DSS</span><span>ESS</span>
+      <span>Enterprise applications</span><span>ERP</span><span>SCM</span><span>CRM</span><span>KMS</span>
+    </div>
+  </div>
+</section>
+
+<!-- Q6 -->
+<section class="page" id="q6">
+  <div class="card">
+    <h2>Q6 (Chapter 2). What is the role of the information systems function in a business?</h2>
+
+    <h3>Exam-Ready Answer</h3>
+    <p>The <span class="kw">information systems function</span> is the department responsible for managing IT services and infrastructure within a business, including hardware, software, data storage, and networks. This function ensures that the technology backbone of the organization operates reliably and supports the firm's business processes and management needs.</p>
+    <p>The IS function is carried out by several types of specialists. <span class="kw">Programmers</span> are technical specialists who write the software instructions for computers. <span class="kw">Systems Analysts</span> act as a link between the information systems department and the rest of the organization, translating business problems and requirements into information requirements and systems. <span class="kw">IS Managers</span> lead teams of programmers and analysts, and manage projects, data centers, telecommunications, and other technical operations.</p>
+    <p>At a senior level, several executive roles oversee IS strategy and governance. The <span class="kw">CIO (Chief Information Officer)</span> oversees the organization's use of information technology and works to align technology decisions with overall business strategy. The <span class="kw">CSO/CISO (Chief Security Officer / Chief Information Security Officer)</span> is responsible for information systems security. The <span class="kw">CPO (Chief Privacy Officer)</span> ensures compliance with data privacy laws and practices. The <span class="kw">CKO (Chief Knowledge Officer)</span> manages the organization's knowledge management programs. The <span class="kw">CDO (Chief Data Officer)</span> is responsible for enterprise-wide data governance and use.</p>
+    <p>Overseeing all of this is <span class="kw">IT governance</span>: the strategy and policies that guide IT use, including decision rights and accountability, to make sure that IT investments and activities actually support the organization's broader strategy and objectives. In short, the IS function does not just "keep the computers running"; it is responsible for aligning technology, data, security, and knowledge management with what the business is trying to achieve.</p>
+
+    <div class="memorize">
+      <h4>Key Points to Memorize</h4>
+      <ol>
+        <li>IS department manages IT services/infrastructure: hardware, software, data storage, networks.</li>
+        <li>Specialist roles: Programmers, Systems Analysts, IS Managers.</li>
+        <li>Executive roles: CIO, CSO/CISO, CPO, CKO, CDO (know what each oversees).</li>
+        <li>IT Governance = strategy/policies, decision rights, accountability, alignment with business strategy.</li>
+      </ol>
+    </div>
+
+    <div class="simple">
+      <h4>Simple Explanation</h4>
+      <p>The IS function is basically the "tech department" of the company. Programmers write code, systems analysts translate business needs into tech requirements, and IS managers run the technical teams. At the top, executives like the CIO make sure all this technology actually helps the business strategy, while other chiefs (CSO, CPO, CKO, CDO) look after security, privacy, knowledge, and data specifically. IT governance is the rulebook that keeps all these decisions accountable and aligned with the business.</p>
+    </div>
+
+    <div class="structure">
+      <h4>10-Minute Exam Structure</h4>
+      <ol>
+        <li><strong>(1.5 min)</strong> Define the IS function.</li>
+        <li><strong>(3 min)</strong> Explain the 3 specialist roles.</li>
+        <li><strong>(4 min)</strong> Explain the 5 executive roles (CIO, CSO/CISO, CPO, CKO, CDO).</li>
+        <li><strong>(1.5 min)</strong> Define IT governance and conclude.</li>
+      </ol>
+    </div>
+
+    <div class="keywords">
+      <h4>Keywords</h4>
+      <span>IS department</span><span>Programmers</span><span>Systems Analysts</span><span>IS Managers</span>
+      <span>CIO</span><span>CSO/CISO</span><span>CPO</span><span>CKO</span><span>CDO</span><span>IT Governance</span>
+    </div>
+  </div>
+</section>
+
+<!-- TABLES -->
+<section class="page" id="tables">
+  <div class="card">
+    <h2>Quick Comparison Tables</h2>
+
+    <h3>Data vs Information</h3>
+    <table>
+      <tr><th>Data</th><th>Information</th></tr>
+      <tr><td>Raw, unprocessed facts and figures representing events</td><td>Data shaped into a meaningful and useful form</td></tr>
+      <tr><td>Can be numbers, text, images, or sound</td><td>Used for decision making</td></tr>
+      <tr><td>Not useful until processed/organized</td><td>Is processed/organized data</td></tr>
+    </table>
+
+    <h3>IT vs IS vs MIS</h3>
+    <table>
+      <tr><th>IT</th><th>IS</th><th>MIS</th></tr>
+      <tr><td>Hardware and software needed to achieve business objectives</td><td>Interrelated components that collect, process, store, distribute information; combines IT + people + processes</td><td>Computer-based system that collects, processes, stores, distributes information to support decisions; provides right info, right time, right form</td></tr>
+      <tr><td>Computers, storage, mobile devices, OS, apps, databases, networks, Internet, intranets, cloud</td><td>Supports decision making, coordination, control, analysis, visualization</td><td>Specific type/purpose of IS focused on managerial decision support</td></tr>
+    </table>
+
+    <h3>TPS vs MIS vs DSS vs ESS</h3>
+    <table>
+      <tr><th>System</th><th>Serves</th><th>Purpose</th></tr>
+      <tr><td>TPS</td><td>Operational management</td><td>Records daily routine transactions (sales, reservations, payroll, shipping); info must be current, accurate, available</td></tr>
+      <tr><td>MIS</td><td>Middle management</td><td>Reports on current performance using TPS data; supports monitoring/control; answers predefined routine questions</td></tr>
+      <tr><td>DSS</td><td>Middle/other management</td><td>Supports unique, rapidly changing, non-predefined problems; uses internal + external data; sophisticated analysis/models</td></tr>
+      <tr><td>ESS</td><td>Senior management</td><td>Supports nonroutine strategic decisions needing judgment/insight; summarized info; dashboards and KPIs</td></tr>
+    </table>
+
+    <h3>ERP vs SCM vs CRM vs KMS</h3>
+    <table>
+      <tr><th>System</th><th>Focus</th></tr>
+      <tr><td>ERP (Enterprise Systems)</td><td>Integrates manufacturing, finance/accounting, sales/marketing, and HR</td></tr>
+      <tr><td>SCM</td><td>Manages supplier, purchasing, distributor, logistics relationships and information flows</td></tr>
+      <tr><td>CRM</td><td>Manages customer-related sales, marketing, and service processes</td></tr>
+      <tr><td>KMS</td><td>Captures, manages, shares, and applies organizational knowledge and expertise</td></tr>
+    </table>
+
+    <h3>Organization vs Management vs Technology (3 IS Dimensions)</h3>
+    <table>
+      <tr><th>Organization</th><th>Management</th><th>Technology</th></tr>
+      <tr><td>People, organizational structure, business processes, politics, culture</td><td>Decision making, problem solving, strategy, resource allocation, leadership, coordination</td><td>Hardware, software, data management technology, networking and telecommunications</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- DIAGRAMS -->
+<section class="page" id="diagrams">
+  <div class="card">
+    <h2>Simple Diagrams</h2>
+
+    <h3>1. Input → Processing → Output → Feedback</h3>
+    <div class="diagram">
++---------+     +------------+     +---------+     +-----------+
+|  INPUT  | --> | PROCESSING | --> | OUTPUT  | --> | FEEDBACK  |
+| raw data|     | classify,  |     | reports,|     | sent back |
+| collect |     | arrange,   |     | summary,|     | to check/ |
+|         |     | calculate  |     | charts  |     | correct   |
++---------+     +------------+     +---------+     |  INPUT    |
+     ^                                              +-----------+
+     |__________________________________________________|
+</div>
+
+    <h3>2. Three Dimensions of an Information System</h3>
+    <div class="diagram">
+              INFORMATION SYSTEM
+        _____________|_____________
+       |             |             |
+  ORGANIZATION   MANAGEMENT    TECHNOLOGY
+  people,        decisions,    hardware,
+  structure,     strategy,     software,
+  processes,     resource      data mgmt,
+  politics,      allocation,   networks/
+  culture        leadership    telecom
+</div>
+
+    <h3>3. Management Levels and Systems</h3>
+    <div class="diagram">
+  SENIOR MANAGEMENT        -->  ESS  (strategic, nonroutine, judgment, KPIs)
+        ^
+        | (summarized info)
+  MIDDLE MANAGEMENT        -->  MIS  (routine reports, monitoring/control)
+                            -->  DSS  (non-routine, rapidly changing problems)
+        ^
+        | (transaction data)
+  OPERATIONAL MANAGEMENT   -->  TPS  (daily routine transactions)
+</div>
+
+    <h3>4. Enterprise Applications Linking the Firm</h3>
+    <div class="diagram">
+        MANUFACTURING   FINANCE/ACCOUNTING   SALES/MARKETING   HR
+              \               |                   |            /
+               \______________|___________________|___________/
+                                    |
+                              ERP (Enterprise
+                                 System)
+                                    |
+      ------------------------------------------------------------
+      |                    |                     |
+     SCM                  CRM                   KMS
+  (suppliers,          (customer sales,      (capture/share/
+   logistics)           marketing, service)    apply knowledge)
+</div>
+  </div>
+</section>
+
+<!-- MEMORIZE -->
+<section class="page" id="memorize">
+  <div class="card">
+    <h2>Must Memorize</h2>
+
+    <div class="memorize">
+      <h4>Core Definitions (word-for-word concepts)</h4>
+      <ul>
+        <li><strong>Data</strong>: raw, unprocessed facts/figures representing events.</li>
+        <li><strong>Information</strong>: data shaped into a meaningful, useful form for decision making.</li>
+        <li><strong>IT</strong>: hardware and software needed to achieve business objectives.</li>
+        <li><strong>IS</strong>: interrelated components that collect, process, store, distribute information to support decision making, coordination, control, analysis, visualization; combines IT + people + processes.</li>
+        <li><strong>MIS</strong>: computer-based system delivering the right information, right time, right form to managers.</li>
+        <li><strong>Business Process</strong>: how work is organized, coordinated, and focused to produce a valuable product/service; supported by flows of material, information, knowledge.</li>
+      </ul>
+    </div>
+
+    <div class="memorize">
+      <h4>Numbered Lists to Recall Instantly</h4>
+      <ul>
+        <li><strong>4 IS functions:</strong> Input, Processing, Output, Feedback.</li>
+        <li><strong>3 IS dimensions:</strong> Organization, Management, Technology.</li>
+        <li><strong>6 strategic business objectives:</strong> Operational excellence, New products/services/business models, Customer and supplier intimacy, Improved decision making, Competitive advantage, Survival.</li>
+        <li><strong>Technical disciplines:</strong> Computer Science, Management Science, Operations Research.</li>
+        <li><strong>Behavioral disciplines:</strong> Sociology, Psychology, Economics.</li>
+        <li><strong>3 Management levels:</strong> Operational, Middle, Senior.</li>
+        <li><strong>4 System types:</strong> TPS, MIS, DSS, ESS.</li>
+        <li><strong>4 Enterprise applications:</strong> ERP, SCM, CRM, KMS.</li>
+        <li><strong>IS specialist roles:</strong> Programmers, Systems Analysts, IS Managers.</li>
+        <li><strong>Executive IS roles:</strong> CIO, CSO/CISO, CPO, CKO, CDO.</li>
+      </ul>
+    </div>
+
+    <div class="memorize">
+      <h4>Extra Chapter 2 Terms (may appear in short-answer parts)</h4>
+      <ul>
+        <li><strong>Intranet</strong>: internal company website, employees only.</li>
+        <li><strong>Extranet</strong>: company website for authorized outsiders (suppliers/vendors).</li>
+        <li><strong>E-business</strong>: digital technology/Internet used to execute major business processes, including internal management and coordination with partners.</li>
+        <li><strong>E-commerce</strong>: part of e-business focused on buying/selling online, plus marketing, security, delivery, payment, customer support.</li>
+        <li><strong>E-government</strong>: Internet/networking technology used to digitally enable government-citizen-business relationships.</li>
+        <li><strong>Collaboration</strong>: working with others to achieve shared, explicit goals.</li>
+        <li><strong>Social Business</strong>: use of social networking platforms and internal tools to engage employees/customers/suppliers via profiles, groups, updates.</li>
+        <li><strong>Collaboration technologies</strong>: email/IM, wikis, virtual worlds, collaboration/social business platforms, virtual meeting systems.</li>
+        <li><strong>IT Governance</strong>: strategy/policies for IT use, decision rights, accountability, aligning IT with business strategy.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LAST 10 MIN -->
+<section class="page" id="last10">
+  <div class="card">
+    <h2>Last 10 Minutes Before Exam</h2>
+    <ol>
+      <li>Say out loud, from memory: the <strong>6 strategic business objectives</strong>.</li>
+      <li>Say out loud: <strong>Input → Processing → Output → Feedback</strong>.</li>
+      <li>Say out loud: <strong>Organization, Management, Technology</strong> (3 dimensions).</li>
+      <li>Say out loud: <strong>TPS (operational) → MIS/DSS (middle) → ESS (senior)</strong>.</li>
+      <li>Say out loud: <strong>ERP, SCM, CRM, KMS</strong> and what each does in 3 words.</li>
+      <li>Recall the difference between <strong>Data</strong> and <strong>Information</strong> in one sentence each.</li>
+      <li>Recall the difference between <strong>IT</strong> and <strong>IS</strong> in one sentence each.</li>
+      <li>Remember: for every question, start with a definition, then structure your points as a numbered list, then close with one linking sentence. Examiners reward clear structure.</li>
+      <li>Do not panic if you forget one item in a list; write what you remember and move on. Partial marks exist for partial lists.</li>
+      <li>Watch your time: about <strong>10 minutes per question</strong> for medium-length, structured answers, not long essays.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SELF TEST -->
+<section class="page" id="selftest">
+  <div class="card">
+    <h2>Self-Test (Attempt First, Then Reveal)</h2>
+
+    <details>
+      <summary>1. What is the difference between data and information?</summary>
+      <p>Data is raw, unprocessed facts and figures representing events (numbers, text, images, sound). Information is data shaped into a meaningful, useful form, used for decision making.</p>
+    </details>
+
+    <details>
+      <summary>2. List the four IS functions in order.</summary>
+      <p>Input, Processing, Output, Feedback.</p>
+    </details>
+
+    <details>
+      <summary>3. Name the three dimensions of an information system.</summary>
+      <p>Organization, Management, Technology.</p>
+    </details>
+
+    <details>
+      <summary>4. List the six strategic business objectives.</summary>
+      <p>Operational excellence; new products, services, and business models; customer and supplier intimacy; improved decision making; competitive advantage; survival.</p>
+    </details>
+
+    <details>
+      <summary>5. What are the three technical academic disciplines used to study IS?</summary>
+      <p>Computer Science, Management Science, Operations Research.</p>
+    </details>
+
+    <details>
+      <summary>6. What are the three behavioral academic disciplines used to study IS?</summary>
+      <p>Sociology, Psychology, Economics.</p>
+    </details>
+
+    <details>
+      <summary>7. Define a business process.</summary>
+      <p>The manner in which work is organized, coordinated, and focused to produce a valuable product or service; a collection of activities supported by flows of material, information, and knowledge.</p>
+    </details>
+
+    <details>
+      <summary>8. Match each management level to its system: Operational, Middle, Senior.</summary>
+      <p>Operational → TPS. Middle → MIS and DSS. Senior → ESS.</p>
+    </details>
+
+    <details>
+      <summary>9. What does TPS stand for and what does it do?</summary>
+      <p>Transaction Processing System. Performs and records daily routine transactions (sales orders, reservations, payroll, employee records, shipping); info must be current, accurate, available.</p>
+    </details>
+
+    <details>
+      <summary>10. What does DSS support and what data does it use?</summary>
+      <p>Supports unique, rapidly changing problems where procedures are not fully predefined. Uses internal data from TPS/MIS and may use external information for sophisticated analysis/models.</p>
+    </details>
+
+    <details>
+      <summary>11. What does ESS support and how is information presented?</summary>
+      <p>Supports senior management's nonroutine strategic decisions requiring judgment, evaluation, insight. Uses summarized internal/external information, often via dashboards and KPIs.</p>
+    </details>
+
+    <details>
+      <summary>12. Name the four major enterprise applications.</summary>
+      <p>ERP (Enterprise Systems), SCM, CRM, KMS.</p>
+    </details>
+
+    <details>
+      <summary>13. What does ERP integrate?</summary>
+      <p>Manufacturing, finance/accounting, sales/marketing, and HR.</p>
+    </details>
+
+    <details>
+      <summary>14. What is the difference between an intranet and an extranet?</summary>
+      <p>An intranet is an internal company website accessible only to employees. An extranet is a company website accessible to authorized outsiders such as suppliers and vendors.</p>
+    </details>
+
+    <details>
+      <summary>15. What is the difference between e-business and e-commerce?</summary>
+      <p>E-business is the use of digital technology and the Internet to execute major business processes, including internal management and coordination with partners. E-commerce is the part of e-business concerned specifically with buying and selling goods/services online, plus supporting activities like marketing, security, delivery, payment, and customer support.</p>
+    </details>
+
+    <details>
+      <summary>16. List the three IS specialist roles and the five executive IS roles.</summary>
+      <p>Specialist roles: Programmers, Systems Analysts, IS Managers. Executive roles: CIO, CSO/CISO, CPO, CKO, CDO.</p>
+    </details>
+
+    <details>
+      <summary>17. What is IT governance?</summary>
+      <p>Strategy and policies for IT use, including decision rights and accountability, ensuring IT supports organizational strategy and objectives.</p>
+    </details>
+
+    <details>
+      <summary>18. What is a systems analyst's role?</summary>
+      <p>Translates business problems and requirements into information requirements and systems, linking the IS department with the rest of the organization.</p>
+    </details>
+  </div>
+  <p style="text-align:center; color:var(--muted); font-size:0.85rem;">Good luck. Trust the structure: define, list, explain, conclude.</p>
+</section>
+
+</main>
+
+<footer>
+  BA 3204 Fundamentals of MIS : Chapters 1 &amp; 2 Exam Prep. Content drawn only from the supplied course material. For offline study use.
+</footer>
+
+<script>
+  var buttons = document.querySelectorAll('nav.tabs button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      showPage(btn.getAttribute('data-page'));
+    });
+  });
+
+  function showPage(id){
+    document.querySelectorAll('section.page').forEach(function(sec){
+      sec.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('nav.tabs button').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-page') === id);
+    });
+    window.scrollTo(0,0);
+  }
+</script>
+
+</body>
+</html>
